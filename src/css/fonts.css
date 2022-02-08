@@ -30,6 +30,9 @@
 .fa-user-circle::before {
     content: "\f2bd";
 }
+.fa-user::before {
+    content: "\f007";
+}
 .fa-angle-down::before {
     content: "\f107";
 }
@@ -56,6 +59,9 @@
 }
 .fa-truck::before {
     content: "\f0d1";
+}
+.fa-car::before {
+    content: "\f1b9";
 }
 .fa-filter::before {
     content: "\f0b0";

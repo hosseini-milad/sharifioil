@@ -31,7 +31,7 @@ function MegaMenuLable(){
             <div className="megaMenuBanner">
                 <h3>راندمان را با برچسب های حرارتی مستقیم روی رول ها افزایش دهید.</h3>
     
-                <a class="blueA">اکنون خرید کنید <span class="u-font-size--small">►</span></a>
+                <a className="blueA">اکنون خرید کنید <span className="u-font-size--small">►</span></a>
 
             </div>
         </div>
@@ -41,7 +41,7 @@ function MegaMenuLable(){
                 <div className="menuSideBarItem" key={i}>
                 <img src={product.image.sourceUrl}/>
                 <div className="mySideBarItemText">
-                    <a class="blueA">{product.name}</a>
+                    <a className="blueA">{product.name}</a>
                     <small>{product.productCategories.nodes[0].name}</small>
                     <small>4 برچسب در صفحه</small>
                 </div>

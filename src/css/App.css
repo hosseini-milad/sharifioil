@@ -2,7 +2,7 @@
 :root{
 	--main-color:#1978b8;
 	--main-dark:#176ba4;
-	--main-light:#fefefe;
+	--main-light:#565656;
 	--second-color:#f08a24;
 	--third-color:#2096D4;
 	--font-dark: #222;
@@ -18,7 +18,8 @@
 	--footer-back:#565050;
 	
 	--box-shadow-main: 0px 4px 43px rgba(0, 0, 0, 0.25);
-	--box-shadow-inner:0px 4px 20px rgba(0, 0, 0, 0.25)
+	--box-shadow-inner:0px 4px 20px rgba(0, 0, 0, 0.25);
+	--box-shadow-Menu:0px 0px 5px rgba(0, 0, 0, 0.25);
 }
 body{
 	margin:0;
@@ -34,7 +35,6 @@ h1,h2,h3,h4{
 	color:var(--title-color);
 }
 header{
-	background-color:var(--main-color);
 	width:100%;
 	min-height:50px;
 }
@@ -59,6 +59,9 @@ select:hover{
 	
 	box-shadow: 0 3px 12px rgba(0,0,0,.2);
 }
+input {
+	font-family: iran;
+}
 button{
 	font-family: iran;
 }
@@ -79,6 +82,8 @@ label{
 	display:flex;
 	padding: 1.1rem 1.5rem;
 	justify-content: space-evenly;
+	
+	position: relative;
 }
 .menu{
 	background-color:var(--main-dark);
@@ -195,26 +200,36 @@ border-top: 1px solid;
 
 .search{
 	position: relative;
-	width:50%;
+	width:20%;
 	margin: auto;
 }
 .search input{
 	box-shadow: none !important;
-	height: 1.7rem;
+	height: 37px;
 	margin: 0;
-	padding: .5rem;
+	padding-right: .5rem;
 	width: 97%;
 }
 .search button{
-	color: #666;
+	color: #fff;
 	cursor: pointer;
-	font-size: 1.25rem;
+	font-size: 1rem;
 	padding: 0.5rem;
 	position: absolute;
-	top: 0.15rem;
-	left: 0;
-	background: none;
+	top: 0;
+	left: -6px;
 	border: none;
+	background-color: var(--border-color);
+	height: 42px;
+	width: 42px;
+}
+.circleIcon{
+	background-color: var(--main-color);
+	width: 26px;
+	height: 26px;
+	padding: 3px 7px 4px 0px;
+	border-radius: 50%;
+	color:#fff;
 }
 .account{
 	display: flex;
@@ -227,7 +242,7 @@ border-top: 1px solid;
 	margin: auto;
 }
 .icon-size{
-	font-size: 25px;
+	font-size: 18px;
 }
 .cart{
 	display: flex;
@@ -235,10 +250,95 @@ border-top: 1px solid;
 	width: 20%;
 	margin: auto;
 }
+.megaMenuHeader{
+	position: absolute;
+	right: 0;
+	background-color: #fefefe;
+	z-index: 20;
+	min-height: 150px;
+	padding: 10px 3%;
+	top: 70px;
+	width: 94%;
+	display: flex;
+	box-shadow: var(--box-shadow-Menu);
+}
+.megaSideBar{
+	width:25%;
+	margin: auto;
+}
+.searchPhase1{
+	width: 75%;
+	margin: auto;
+}
+.searchPhase1 ul{
+	list-style: none;
+	display: flex;
+	padding: 0;
+	width: 85%;
+	margin: auto;
+	justify-content: center;
+}
+.searchPhase1 li{
+	padding: 5px;
+	display: grid;
+	text-align:center;
+	line-height: 2.5;
+	width:20%;
+	cursor: pointer;
+}
+.searchImgHolder img{
+	width:80px;
+	margin: auto;
+}
+.searchImgHolder img:hover{
+	width:90px;
+	filter: brightness(0.8);
+}
 
+.searchPhase2{
+	display: flex;
+}
+.vehiclePart{
+	width:25% !important;
+}
+.vehiclePart li{
+	width:auto;
+}
+.brandPart{
+	width:75%;
+	display: flex;
+	flex-wrap: wrap;
+}
+.brandPart li{
+	width:15%;
+	border:2px solid transparent;
+	border-radius: 5px;
+	padding:10px 0;
+}
+.brandPart li img{
+	width:80%;
+	margin: auto;
+}
+.brandPart li:hover{
+	border:2px solid var(--main-color);
+
+}
+.searchPhase3{
+	display: flex;
+}
 .mainHolder{
 	margin: auto;
 	display: flex;
+	padding: 5px 10px;
+	border: .5px solid transparent;
+}
+.mainHolder:hover{
+	/*border: .5px solid var(--border);*/
+	box-shadow: var(--box-shadow-Menu);
+}
+.searchImgHolder{
+	height:75px;
+	display: grid;
 }
 .cart-heading {
 	padding: 0 10px;

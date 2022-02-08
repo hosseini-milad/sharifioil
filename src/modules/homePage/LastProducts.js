@@ -41,7 +41,7 @@ function LastProducts(){
 			<div className="offerLabels" style={{display:tabIndex===1?"inherit":"none"}}>
 				<div className="offerLabelsHolder">
 					{labels&&labels.products.nodes.map(label=>(
-						<div className="offerLabel">
+						<div className="offerLabel" key={label.databaseId}>
 						<img src={label.image.sourceUrl} />
 						<h2 className="offerLabelTitle">{label.name}</h2>
 						<div>
