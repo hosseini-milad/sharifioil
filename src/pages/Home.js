@@ -10,11 +10,10 @@ function Home(){
     return (
         <>
            <Slider/> 
-           <div className="megaSideBar">
-                <h3>Look Up a Vehicle</h3>
-                <p>The fastest and easiest way to determine which AMSOIL products you need. View all guides ›</p>
+           <div className="homeSideBar">
+                <h3>پیدا کردن محصولات برای:</h3>
+                <SearchArea />
             </div>
-            <SearchArea />
            <Categories/>
            <div className="bannerRow">
 			    <img src={env.siteUrl+"/images/static/banner.jpg"} />

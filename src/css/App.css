@@ -1,6 +1,6 @@
 
 :root{
-	--main-color:#1978b8;
+	--main-color:#093b66;
 	--main-dark:#176ba4;
 	--main-light:#565656;
 	--second-color:#f08a24;
@@ -80,7 +80,7 @@ label{
 }
 .topHeader{
 	display:flex;
-	padding: 1.1rem 1.5rem;
+	padding: 1.1rem 3% 2rem;
 	justify-content: space-evenly;
 	
 	position: relative;
@@ -231,10 +231,12 @@ border-top: 1px solid;
 	border-radius: 50%;
 	color:#fff;
 }
+.icons{
+	display: flex;
+}
 .account{
 	display: flex;
 	color:var(--main-light);
-	width: 20%;
 	margin: auto;
 }
 .account-heading{
@@ -247,7 +249,6 @@ border-top: 1px solid;
 .cart{
 	display: flex;
 	color:var(--main-light);
-	width: 20%;
 	margin: auto;
 }
 .megaMenuHeader{
@@ -267,16 +268,17 @@ border-top: 1px solid;
 	margin: auto;
 }
 .searchPhase1{
-	width: 75%;
+	width: 100%;
 	margin: auto;
 }
 .searchPhase1 ul{
 	list-style: none;
 	display: flex;
-	padding: 0;
+	padding: 10px 0;
 	width: 85%;
 	margin: auto;
 	justify-content: center;
+	align-items: flex-end;
 }
 .searchPhase1 li{
 	padding: 5px;
@@ -286,8 +288,13 @@ border-top: 1px solid;
 	width:20%;
 	cursor: pointer;
 }
+.searchPhase1 span{
+	color:silver;
+}
 .searchImgHolder img{
 	width:80px;
+	min-height: 50px;
+	object-fit: contain;
 	margin: auto;
 }
 .searchImgHolder img:hover{
@@ -299,10 +306,18 @@ border-top: 1px solid;
 	display: flex;
 }
 .vehiclePart{
-	width:25% !important;
+	width:20% !important;
+	background-color: #fff;
+	display: grid !important;
 }
 .vehiclePart li{
 	width:auto;
+	min-width: 70px;
+	font-size: 11px;
+}
+.vehiclePart li img{
+	max-height: 80px;
+	object-fit: contain;
 }
 .brandPart{
 	width:75%;
@@ -325,6 +340,35 @@ border-top: 1px solid;
 }
 .searchPhase3{
 	display: flex;
+	position: relative;
+}
+.oilPart{
+
+}
+.oilPart h4{
+ margin:0;
+}
+.oilPart li{
+	width: 17%;
+	background-color: #fff;
+	margin: 0 1%;
+	border-radius: 5px;
+}
+.oilPart img{
+	width:80px;
+	margin:auto;
+}
+.moreProductSearch{
+	width: 50px;
+	height: 170px;
+	box-shadow: var(--box-shadow-Menu);
+	border-radius: 5px;
+	display: grid;
+	background-color: #fff;
+}
+.moreProductSearch a{
+	padding: 70px 5px;
+	text-align: center;
 }
 .mainHolder{
 	margin: auto;
@@ -337,7 +381,7 @@ border-top: 1px solid;
 	box-shadow: var(--box-shadow-Menu);
 }
 .searchImgHolder{
-	height:75px;
+	max-height:75px;
 	display: grid;
 }
 .cart-heading {
@@ -373,7 +417,7 @@ border-top: 1px solid;
 .banner{
 	background-position-x: 70%;
 	background: #D3D9DD;
-	padding: 1.5rem 0;
+	padding: 0;
 	position: relative;
 }
 .bannerOverlay{
@@ -453,7 +497,15 @@ border-top: 1px solid;
 	align-items: center;
 	display: grid;
 }
-
+.homeSideBar{
+	display: flex;
+	background-color: var(--main-color);
+	padding: 0;
+}
+.homeSideBar h3{
+	color:silver;
+	padding:20px;
+}
 .bannerPromises{
 	display: flex;
 	align-items: center;
@@ -1512,3 +1564,27 @@ width: 15%;
 	background-color: #f29c45;
 }
 
+@media(max-width:700px){
+	.logo {width: auto;}
+	.search{display: none;}
+	.account-heading,.cart-heading{display: none;}
+	.logo img{width:120px;}
+	.homeSideBar {display: grid;}
+	.searchPhase1 ul {width: 100%;}
+	.searchImgHolder {max-width: 70px;}
+	.searchImgHolder img {width: 60px;}
+	.searchImgHolder img:hover {width: 70px;}
+	.searchPhase1 span {font-size: 11px;}
+	.searchPhase2 {display: grid;}
+	.megaMenuHeader {width:100%;display: grid;}
+	.megaSideBar {width: 95%;}
+	.menu ul {overflow-x: scroll;}
+	.menu li {white-space: nowrap;}
+
+	.vehiclePart {width: 100% !important; display: flex !important;}
+	.vehiclePart span{display:none;}
+	.vehiclePart li img {width: 60px;}
+	.searchPhase3 {display: grid;}
+	.oilPart {overflow-x: scroll;justify-content: inherit !important;}
+	.oilPart li {min-width: 100px;}
+}

@@ -5,7 +5,7 @@ import SearchArea from "../modules/allPages/SearchPart/SearchArea";
 
 function Header(){
 	const [lblMenu,setLblMenu] = useState("none");
-	const [searchMenu,setSearch] = useState("0")
+	const [searchMenu,setSearch] = useState("hidden")
     const handleLableMenuHover=()=>{
         setLblMenu("block")
 	}
@@ -13,10 +13,10 @@ function Header(){
         setLblMenu("none")
 	}
 	const handleSearchHover=()=>{
-        setSearch("100")
+        setSearch("visible")
 	}
 	const handleSearchOut=()=>{
-        setSearch("0")
+        setSearch("hidden")
 	}
     return(
         <header>
@@ -28,13 +28,14 @@ function Header(){
 				<input type="text" placeholder="جستجو" className="v-auto-search__input" /> 
 				<button title="Submit this search" className="v-auto-search__search-icon"><i className="fas fa-search"></i></button>
 			</div>
+			<div className="icons">
 			<div className="account">
 				<div className="mainHolder" onMouseOver={handleSearchHover}
 						onMouseOut={handleSearchOut}>
 					<i className="icon-size circleIcon fas fa-car"></i>
-					<div className="account-heading">جستجوی برند</div>
+					<div className="account-heading">جستجوی سریع</div>
 					<i className="fas fa-angle-down"></i>
-					<div className="megaMenuHeader" style={{opacity:searchMenu}}>
+					<div className="megaMenuHeader" style={{visibility:searchMenu}}>
 						<div className="megaSideBar">
 							<h3>Look Up a Vehicle</h3>
 							<p>The fastest and easiest way to determine which AMSOIL products you need. View all guides ›</p>
@@ -55,6 +56,7 @@ function Header(){
 					<i className="icon-size circleIcon fas fa-shopping-cart"></i>
 					<span className="cart-heading">سبد خرید</span>
 				</div>
+			</div>
 			</div>
 		</div>
 		<div className="menu">

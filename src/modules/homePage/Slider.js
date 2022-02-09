@@ -1,9 +1,33 @@
 import env from "../../env"
+import '../../css/slider.css'
+import ImageGallery from 'react-image-gallery';
 function Slider(){
+	const linkNow=(e)=>{
+		console.log(e)
+	}
+	const images = [
+		{
+		  original: 'http://oil.deleves.com/images/slider1.jpg',
+		},
+		{
+		  original: 'http://oil.deleves.com/images/slider2.jpg',
+		},
+		{
+		  original: 'http://oil.deleves.com/images/slider1.jpg',
+		},
+	  ];
     return(
         <section className="banner">
-		  <div className="bannerOverlay">
-			<img src={env.siteUrl+"/images/static/slider.png"} />
+		  <ImageGallery 
+			showFullscreenButton={false} 
+			showPlayButton={false} 
+			showThumbnails={false} 
+			onClick={(e)=>linkNow(e)}
+			items={
+				images	
+			}
+			/>
+			{/*<div className="bannerOverlay">
 		  </div>
 			<div className="bannerText">
 				<div className="bannerTitle">بهترین برچسب را پیدا کنید</div>
@@ -33,7 +57,7 @@ function Slider(){
 			</div>
 			<div className="bannerPromises">
 				
-			</div>
+		</div>*/}
 		</section>
     )
 }

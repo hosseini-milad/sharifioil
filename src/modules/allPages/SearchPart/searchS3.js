@@ -4,9 +4,9 @@ function SearchPhase3(props){
             <ul className="vehiclePart"><li dangerouslySetInnerHTML={{__html:props.vehicle.innerHTML}}></li>
             <li dangerouslySetInnerHTML={{__html:props.model.innerHTML}}></li>
             </ul>
-            <ul>
-                <li>سینتتیک</li>
-                <li>نیمه سینتتیک</li>
+            <ul className="oilPart">
+                <li onClick={(e)=>props.kindHandler(e.target.parentNode)}><span>سینتتیک</span></li>
+                <li onClick={(e)=>props.kindHandler(e.target.parentNode)}><span>نیمه سینتتیک</span></li>
             </ul>
         </div>)
 }
