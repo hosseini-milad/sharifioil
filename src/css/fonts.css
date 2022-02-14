@@ -1,15 +1,15 @@
 @font-face {
     font-family: iran;
-    src: url("https://new.hiprinter.com/fonts/iran/IRANSansWeb.eot")format("embedded-opentype");
-    src: url("https://new.hiprinter.com/fonts/iran/IRANSansWeb.eot")format("embedded-opentype"),
-    url("https://new.hiprinter.com/fonts/iran/IRANSansWeb.ttf")format("truetype"),
-    url("https://new.hiprinter.com/fonts/iran/IRANSansWeb.woff")format("woff"),
-    url("https://new.hiprinter.com/fonts/iran/IRANSansWeb.woff2")format("woff2");
+    src: url("http://oil.deleves.com/fonts/iran/IRANSansWeb.eot")format("embedded-opentype");
+    src: url("http://oil.deleves.com/fonts/iran/IRANSansWeb.eot")format("embedded-opentype"),
+    url("http://oil.deleves.com/fonts/iran/IRANSansWeb.ttf")format("truetype"),
+    url("http://oil.deleves.com/fonts/iran/IRANSansWeb.woff")format("woff"),
+    url("http://oil.deleves.com/fonts/iran/IRANSansWeb.woff2")format("woff2");
 }
 
-@font-face{font-family:"Font Awesome 5 Brands";font-style:normal;font-weight:400;font-display:block;src:url(https://new.hiprinter.com/fonts/iran/fa-brands-400.eot);src:url(https://new.hiprinter.com/fonts/iran/fa-brands-400.eot?#iefix) format("embedded-opentype"),url(https://new.hiprinter.com/fonts/iran/fa-brands-400.woff2) format("woff2"),url(https://new.hiprinter.com/fonts/iran/fa-brands-400.woff) format("woff"),url(https://new.hiprinter.com/fonts/iran/fa-brands-400.ttf) format("truetype"),url(https://new.hiprinter.com/fonts/iran/fa-brands-400.svg#fontawesome) format("svg")}.fab{font-family:"Font Awesome 5 Brands"}
-@font-face{font-family:"Font Awesome 5 Free";font-style:normal;font-weight:400;font-display:block;src:url(https://new.hiprinter.com/fonts/iran/fa-regular-400.eot);src:url(https://new.hiprinter.com/fonts/iran/fa-regular-400.eot?#iefix) format("embedded-opentype"),url(https://new.hiprinter.com/fonts/iran/fa-regular-400.woff2) format("woff2"),url(https://new.hiprinter.com/fonts/iran/fa-regular-400.woff) format("woff"),url(https://new.hiprinter.com/fonts/iran/fa-regular-400.ttf) format("truetype"),url(https://new.hiprinter.com/fonts/iran/fa-regular-400.svg#fontawesome) format("svg")}.fab,.far{font-weight:400;font-style: normal;}
-@font-face{font-family:"Font Awesome 5 Free";font-style:normal;font-weight:900;font-display:block;src:url(https://new.hiprinter.com/fonts/iran/fa-solid-900.eot);src:url(https://new.hiprinter.com/fonts/iran/fa-solid-900.eot?#iefix) format("embedded-opentype"),url(https://new.hiprinter.com/fonts/iran/fa-solid-900.woff2) format("woff2"),url(https://new.hiprinter.com/fonts/iran/fa-solid-900.woff) format("woff"),url(https://new.hiprinter.com/fonts/iran/fa-solid-900.ttf) format("truetype"),url(https://new.hiprinter.com/fonts/iran/fa-solid-900.svg#fontawesome) format("svg")}
+@font-face{font-family:"Font Awesome 5 Brands";font-style:normal;font-weight:400;font-display:block;src:url(http://oil.deleves.com/fonts/iran/fa-brands-400.eot);src:url(http://oil.deleves.com/fonts/iran/fa-brands-400.eot?#iefix) format("embedded-opentype"),url(http://oil.deleves.com/fonts/iran/fa-brands-400.woff2) format("woff2"),url(http://oil.deleves.com/fonts/iran/fa-brands-400.woff) format("woff"),url(http://oil.deleves.com/fonts/iran/fa-brands-400.ttf) format("truetype"),url(http://oil.deleves.com/fonts/iran/fa-brands-400.svg#fontawesome) format("svg")}.fab{font-family:"Font Awesome 5 Brands"}
+@font-face{font-family:"Font Awesome 5 Free";font-style:normal;font-weight:400;font-display:block;src:url(http://oil.deleves.com/fonts/iran/fa-regular-400.eot);src:url(http://oil.deleves.com/fonts/iran/fa-regular-400.eot?#iefix) format("embedded-opentype"),url(http://oil.deleves.com/fonts/iran/fa-regular-400.woff2) format("woff2"),url(http://oil.deleves.com/fonts/iran/fa-regular-400.woff) format("woff"),url(http://oil.deleves.com/fonts/iran/fa-regular-400.ttf) format("truetype"),url(http://oil.deleves.com/fonts/iran/fa-regular-400.svg#fontawesome) format("svg")}.fab,.far{font-weight:400;font-style: normal;}
+@font-face{font-family:"Font Awesome 5 Free";font-style:normal;font-weight:900;font-display:block;src:url(http://oil.deleves.com/fonts/iran/fa-solid-900.eot);src:url(http://oil.deleves.com/fonts/iran/fa-solid-900.eot?#iefix) format("embedded-opentype"),url(http://oil.deleves.com/fonts/iran/fa-solid-900.woff2) format("woff2"),url(http://oil.deleves.com/fonts/iran/fa-solid-900.woff) format("woff"),url(http://oil.deleves.com/fonts/iran/fa-solid-900.ttf) format("truetype"),url(http://oil.deleves.com/fonts/iran/fa-solid-900.svg#fontawesome) format("svg")}
 .fa,.far,.fas{font-family:"Font Awesome 5 Free"}.fa,.fas{font-weight:900}
 
 .star-icon {
@@ -59,6 +59,12 @@
 }
 .fa-truck::before {
     content: "\f0d1";
+}
+.fa-eye::before {
+    content: "\f06e";
+}
+.fa-swatch::before {
+    content: "\f5c3";
 }
 .fa-car::before {
     content: "\f1b9";

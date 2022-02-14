@@ -22,7 +22,7 @@ function Header(){
         <header>
 		<div className="topHeader">
 			<a className="logo" href="/">
-				<img src="https://www.amsoil.com/medias/logo-amsoil.png?context=bWFzdGVyfGltYWdlc3w0NjgzfGltYWdlL3BuZ3xpbWFnZXMvaDg1L2gxZS84ODE0NzI3NDMwMTc0LnBuZ3w5NDUyODdiMWRlMGRiMTgxNTdkNmE0NTliYWVjOGMwNTY2YjE5MWM0NWE4ZGNhMGY4YzBmOWIwM2Q5NTFmNjI3" alt="Hi Printer Logo" width="192px" height="54px"/>
+				<img src="https://sharifoilco.com/assets/imgs/header-logo.png" alt="Sharifi Oil Logo" width="192px" height="54px"/>
 			</a>
 			<div className="search">
 				<input type="text" placeholder="جستجو" className="v-auto-search__input" /> 
@@ -63,15 +63,15 @@ function Header(){
 			<div className="menuNavBar">
 				<ul>
 					<li className="menuItem" onMouseOver={handleLableMenuHover}
-						onMouseOut={handleLableMenuOut}>
-						<i className="fas fa-chevron-down"></i> دسته بندی برچسب
+						onMouseOut={handleLableMenuOut}> دسته بندی روغن موتور
+						<i className="fas fa-chevron-down"></i>
 						<div className="MegaMenuLable" style={{display:lblMenu}}>
 							<MegaMenuLable />
 						</div>
 					</li>
-					<li className="menuItem">ریبون</li>
-					<li className="menuItem">رول حرارتی</li>
-					<li className="menuItem">راهنمایی</li>
+					<li className="menuItem hideMenu">ریبون</li>
+					<li className="menuItem hideMenu">رول حرارتی</li>
+					<li className="menuItem hideMenu">راهنمایی</li>
 				</ul>
 			</div>
 			<div className="contact">

@@ -6,8 +6,7 @@ function Footer(){
 			<div className="col25">
 				<div className="logoCol">
 					<div className="footerLogo">
-						<img  src="/images/logo.png" />
-						<span>HiPrinter</span>
+						<img  src="https://sharifoilco.com/assets/imgs/header-logo.png" />
 					</div>
 					<div className="footerSocial">
 						<i className="fab fa-instagram share"></i>

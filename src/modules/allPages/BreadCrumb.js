@@ -1,6 +1,6 @@
 function BreadCrumb(props){
     return(<div className="breadCrumb">
-        <strong>{"خانه >"}</strong>
+        <strong>{"خانه /"}</strong>
         <span>{props.pName}</span>
         </div>
     )

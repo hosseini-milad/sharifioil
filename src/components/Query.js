@@ -2,11 +2,20 @@ import {gql} from "@apollo/client";
 
 
 export const PRODUCT_LIST_QUERY = gql`query {
-    products(first: 10, where:{orderby: {field: DATE, order: ASC},category: "A4 Sheets"}) {
+    products(first: 10, where:{orderby: {field: DATE, order: ASC}}) {
         nodes {
             databaseId
             name
             sku
+            description
+            shortDescription
+            productCategories(first: 1) {
+              nodes {
+                databaseId
+                name
+              }
+            }
+  
             productCategories(first:1){
                 nodes {
                     name
@@ -26,11 +35,24 @@ export const PRODUCT_NOT_LABEL_QUERY = gql`query {
             databaseId
             name
             sku
+            description
+            shortDescription
+            productCategories(first: 1) {
+              nodes {
+                databaseId
+                name
+              }
+            }
             image {
                 sourceUrl
                 srcSet
                 sizes
               }
+              
+            ... on SimpleProduct {
+                price
+                regularPrice
+            }
         }
     }
 }`
@@ -43,6 +65,12 @@ export const PRODUCT_QUERY=(sku)=>{
             sku
             shortDescription
             description
+            productCategories(first: 1) {
+              nodes {
+                databaseId
+                name
+              }
+            }
             image {
                 sourceUrl
                 srcSet
@@ -52,11 +80,17 @@ export const PRODUCT_QUERY=(sku)=>{
     }
 }`)}
 export const PRODUCT_OFFER_QUERY = gql`query {
-    products(first: 4, where:{category: "A4 Sheets"}) {
+    products(first: 4) {
         nodes {
             databaseId
             name
             sku
+            productCategories(first: 1) {
+              nodes {
+                databaseId
+                name
+              }
+            }
             image {
                 sourceUrl
                 srcSet
@@ -71,6 +105,12 @@ export const CATEGORY_QUERY=gql`query{
       nodes {
         databaseId
         description
+        productCategories(first: 1) {
+          nodes {
+            databaseId
+            name
+          }
+        }
         image {
           sizes
           sourceUrl

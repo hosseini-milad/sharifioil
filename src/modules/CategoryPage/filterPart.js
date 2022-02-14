@@ -1,7 +1,7 @@
 function FilterPart(){
     return(
     <div className="resultFilter">
-        <div className="resultCount">8 نتیجه</div>
+        <div className="resultCount">روغن موتور گازوئیلی</div>
         <div className="filterSortBy">
           <label>جستجو بر اساس:</label>
           <select className="filterSort" >
