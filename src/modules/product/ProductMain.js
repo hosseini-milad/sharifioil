@@ -1,5 +1,7 @@
 import { useState } from "react"
 import PriceSelectPop from "./PriceSelectPop";
+import ProductMainDetail from "./ProductMainDetail";
+
 
 const { default: ProductSelectPop } = require("./ProductSelectPop")
 
@@ -21,10 +23,10 @@ function ProductMain(props){
             <div className="productSData">
               <div className="productImg">
                 <div className="galleryImg">
-                    <img src="https://images.uk.onlinelabels.com/images/Products/EU30015/EU30015wx.png" />
-                    <img src="https://images.uk.onlinelabels.com/images/Products/EU30015/EU30015wx.png" />
-                    <img src="https://images.uk.onlinelabels.com/images/Products/EU30015/EU30015wx.png" />
-                    <img src="https://images.uk.onlinelabels.com/images/Products/EU30015/EU30015wx.png" />
+                    <img src="https://roghankala.com/28-large_default/%D8%B1%D9%88%D8%BA%D9%86-%D9%85%D9%88%D8%AA%D9%88%D8%B1-%D9%BE%D8%A7%D8%B1%D8%B3-%D8%B3%D9%88%D9%BE%D8%B1-%D9%BE%D8%A7%DB%8C%D8%A7-10w40-%DA%86%D9%87%D8%A7%D8%B1-%D9%84%D9%8A%D8%AA%D8%B1%D9%8A.jpg" />
+                    <img src="https://roghankala.com/28-large_default/%D8%B1%D9%88%D8%BA%D9%86-%D9%85%D9%88%D8%AA%D9%88%D8%B1-%D9%BE%D8%A7%D8%B1%D8%B3-%D8%B3%D9%88%D9%BE%D8%B1-%D9%BE%D8%A7%DB%8C%D8%A7-10w40-%DA%86%D9%87%D8%A7%D8%B1-%D9%84%D9%8A%D8%AA%D8%B1%D9%8A.jpg" />
+                    <img src="https://roghankala.com/28-large_default/%D8%B1%D9%88%D8%BA%D9%86-%D9%85%D9%88%D8%AA%D9%88%D8%B1-%D9%BE%D8%A7%D8%B1%D8%B3-%D8%B3%D9%88%D9%BE%D8%B1-%D9%BE%D8%A7%DB%8C%D8%A7-10w40-%DA%86%D9%87%D8%A7%D8%B1-%D9%84%D9%8A%D8%AA%D8%B1%D9%8A.jpg" />
+                    <img src="https://roghankala.com/28-large_default/%D8%B1%D9%88%D8%BA%D9%86-%D9%85%D9%88%D8%AA%D9%88%D8%B1-%D9%BE%D8%A7%D8%B1%D8%B3-%D8%B3%D9%88%D9%BE%D8%B1-%D9%BE%D8%A7%DB%8C%D8%A7-10w40-%DA%86%D9%87%D8%A7%D8%B1-%D9%84%D9%8A%D8%AA%D8%B1%D9%8A.jpg" />
                 </div>
                 <div className="mainImg">
                     <img src={product.image.sourceUrl} />
@@ -43,16 +45,7 @@ function ProductMain(props){
               </div>
             </div>
             <div className="productMainDetail">
-                <h1>محصول {product.sku} - {product.name} Labels </h1>
-                <strong>Standard Matt White - 21 Per A4 Sheet</strong>
-                <div className="starRate">
-                    <i className="star-icon fas fa-star"></i>
-                    <i className="star-icon fas fa-star"></i>
-                    <i className="star-icon fas fa-star"></i>
-                    <i className="star-icon fas fa-star"></i>
-                    <i className="star-icon fas fa-star"></i>
-                    <span>( 5.0 based on 47 reviews ) </span>
-                </div>
+                <ProductMainDetail product={product}/>
             </div>
         </div>
         )

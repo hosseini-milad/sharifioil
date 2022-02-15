@@ -271,6 +271,72 @@ border-top: 1px solid;
 	display: flex;
 	box-shadow: var(--box-shadow-Menu);
 }
+.megaMenuSingle{
+	max-width: 350px;
+	left: 0;
+	right: auto;
+	padding: 1%;
+}
+.item-cart-quantity{
+	padding: 1rem 0;
+	margin: 0 15px 1px 15px;
+	border-bottom: 1px solid #dee2e6;
+	color:#111;
+}
+.mini-cart-table {
+    display: block;
+    max-height: 300px;
+    overflow-y: auto;
+    margin: 0 15px;
+    margin-bottom: 1rem;
+    color: #212529;
+}
+.productListHover {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    border-bottom: solid 1px #cdcdcd;
+}
+.inner-wrap {
+    display: flex;
+	align-items: center;
+	text-align: right;
+}
+.inner-wrap img{
+	width: 70px;
+	margin: 5px;
+}
+.minicartData{
+	width: 100%;
+}
+.item-minicart{
+	display:grid;
+	width: 80%;
+}
+.cartpopup{
+	color:#111;
+}
+.cartPrice{
+	display:flex;
+}
+.cartPrice strong{
+	width: 50%;
+	text-align: center;
+}
+.item-minicart-name{
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	display: block;
+	font-weight: bold;
+	width: 90%;
+}
+.cartQty{
+	color: #737373;
+padding-left: 5px;
+}
+
+
 .megaSideBar{
 	width:25%;
 	margin: auto;
@@ -324,7 +390,7 @@ border-top: 1px solid;
 	font-size: 11px;
 }
 .vehiclePart li img{
-	max-height: 80px;
+	max-height: 60px;
 	object-fit: contain;
 }
 .brandPart{
@@ -355,6 +421,7 @@ border-top: 1px solid;
 }
 .oilPart h4{
  margin:0;
+ line-height: 1.2;
 }
 .oilPart li{
 	width: 17%;
@@ -365,6 +432,8 @@ border-top: 1px solid;
 .oilPart img{
 	width:80px;
 	margin:auto;
+	height: 100px;
+object-fit: cover;
 }
 .moreProductSearch{
 	width: 50px;
@@ -995,6 +1064,7 @@ justify-content: center;
 	margin: auto 1%;
 	border-radius: 5px;
 	font-size:15px;
+	min-width: 145px;
 }
 .offer:hover{
 	box-shadow: var(--box-shadow-Menu);
@@ -1280,7 +1350,7 @@ footer{
 }
 .productSData{
 	display: grid;
-	width:45%;
+	width:35%;
 }
 .productImg{
 	display: flex;
@@ -1299,8 +1369,8 @@ footer{
 	width: 50px;
 	height: 50px;
 	object-fit: cover;
-	border-color: #f08a24;
-	box-shadow: 0 0 6px #f08a24;
+	border-color: var(--font-dark);
+	box-shadow: 0 0 4px var(--font-dark);
 	margin: auto auto 20px;
 }
 .mainImg{
@@ -1339,7 +1409,7 @@ footer{
 
 }
 .productMainDetail{
-	width:55%;
+	width:65%;
 	background-color: #eee;
 	border-radius: 0 4px 4px 4px;
 	padding: 1.5rem;
@@ -1675,6 +1745,7 @@ margin: 30px auto;
   .popup-overlay {  background: transparent;}
 .modal{
 	font-family: "iran";
+	position: relative;
   }
   .modal-content{
 	  display: flex;
@@ -1715,6 +1786,20 @@ margin: 30px auto;
 	height: 24px;
 	margin: 20px 3%;
 	cursor: pointer;
+  }
+  .modal-product-detail{
+	color:#111;
+	font-weight: bold;
+	position: absolute;
+bottom: 10px;
+  }
+  .modal-product-detail:hover{
+	color: #005BAA;
+	text-decoration: underline;
+  }
+  .modal-product-detail i{
+	margin: auto 10px;
+	color: var(--border-color);
   }
   .modal-header{
 	text-align:center;
@@ -1787,14 +1872,111 @@ line-height: 22px;
 .accordion__item{
 	border-top:transparent !important;
 }
+.items-total{
+	border-bottom: 1px solid silver;
+}
+.cartTable{
+	margin:10px 2%;
+	text-align: center;
+	border-bottom: 2px solid silver;
+}
+.cartTableHeader{
+	border-bottom: 1px solid silver;
+	color: #fff;
+	background-color: var(--border);
+	line-height: 2;
+}
+.shoppingCartHeading{
+	margin-top:0px;
+}
+.cartHandler{
+	display:flex;
+}
+.cartMain{
+	width: 75%;
+
+}
+.cartSide{
+	width: 25%;
+}
+.cartMainTH{
+	width: 52%;
+}
+.cartAltTH{
+	width: 15%;
+	min-width: 50px;
+}
+.shopCartBtn{
+	padding-top: .5rem;
+	padding-bottom: 1.5rem;
+	display: flex;
+	justify-content: space-evenly;
+}
+.btn-secondary{
+	color: #565656 ;
+	background-color: #fff;
+	padding: 10px 35px;
+	border-radius: 3px;
+	border: #565656 1px solid;
+	font-size: 15px;
+	font-weight: 600;
+	letter-spacing: 0.07px;
+	line-height: 20px;
+	text-align: center;
+	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.btn-secondary:hover{
+	color: #FFF ;
+	background-color: #005BAA;
+	border-color: #005BAA;
+	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+.link_amsoil-large{
+	line-height: 42px;
+display: block;
+color: #111;
+font-weight: 600;
+font-size: 16px;
+text-decoration: underline;
+}
+.link_amsoil-large:hover{
+	color: #005BAA;
+}
+.order-summary {
+    color: #111111;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.23px;
+}
+.textShipping{
+	font-size:12px;
+}
+.cartCheckOut{
+	margin: 0;
+padding: 9px 20px;
+}
+.total-wrap{
+	display:flex;
+	justify-content: space-between;
+}
+.totalPrice{
+	color: #000000;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 24px;
+	padding: 16px 0;
+}
+
+
 
 
 @media(max-width:700px){
 	.logo {width: auto;}
 	.search{display: none;}
 	.account-heading,.cart-heading{display: none;}
-	.logo img{width:120px;}
+	.logo img{width:120px;object-fit: contain;}
 	.homeSideBar {display: grid;}
+	.fa-angle-down{display:none;}
 	.searchPhase1 ul {width: 100%;}
 	.searchImgHolder {max-width: 70px;}
 	.searchImgHolder img {width: 60px;}
@@ -1858,4 +2040,16 @@ line-height: 22px;
 	.categoryHolder {display: grid;}
 	.categorySide {width: 100%;}
 	.categoryMain {width: 100%;}
+
+	.productMainHolder {display: grid;}
+	.productSData {width: 100%;}
+	.productSpec{display:none;}
+	.productMainDetail {width: auto;margin-top: 30px;}
+	.productPromises {display: grid;}
+	.productPromise {width: auto;}
+
+	.cartHandler {display: grid;}
+	.cartSide ,  .cartMain {width: 100%;}
+	.link_amsoil-large{display: none;}
+	.mobileHide{display: none;}
 }

@@ -16,7 +16,7 @@ function Posts(){
 				</p>
 			</div>
 			{queryLists&&queryLists.slice(0,3).map((catData,i)=>(
-			  <PostDetail productData={catData} index={i} />
+			  <PostDetail productData={catData} index={i} key={i}/>
 			))}
 		</section>
     )

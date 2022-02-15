@@ -9,6 +9,9 @@ function FetchGraph(query){
             const updatedCart = data;
             // Update  cart data in React Context.
             setItem(updatedCart);
+        },
+        onError:()=>{
+            console.log('Error')
         }
     });
     return(item&&item);

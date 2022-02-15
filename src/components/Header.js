@@ -1,11 +1,13 @@
 import { useState } from "react"
 import env from "../env"
+import CartMenu from "../modules/allPages/header/CartMenu";
 import MegaMenuLable from "../modules/allPages/MegaMenuLable"
 import SearchArea from "../modules/allPages/SearchPart/SearchArea";
 
 function Header(){
 	const [lblMenu,setLblMenu] = useState("none");
-	const [searchMenu,setSearch] = useState("hidden")
+	const [searchMenu,setSearch] = useState("hidden");
+	const [cartMenu,setCartMenu] = useState("hidden");
     const handleLableMenuHover=()=>{
         setLblMenu("block")
 	}
@@ -18,6 +20,12 @@ function Header(){
 	const handleSearchOut=()=>{
         setSearch("hidden")
 	}
+	const handleCartHover=()=>{
+        setCartMenu("visible")
+	}
+	const handleCartOut=()=>{
+        setCartMenu("hidden")
+	}
     return(
         <header>
 		<div className="topHeader">
@@ -26,7 +34,8 @@ function Header(){
 			</a>
 			<div className="search">
 				<input type="text" placeholder="جستجو" className="v-auto-search__input" /> 
-				<button title="Submit this search" className="v-auto-search__search-icon"><i className="fas fa-search"></i></button>
+				<button title="Submit this search" className="v-auto-search__search-icon">
+					<i className="fas fa-search"></i></button>
 			</div>
 			<div className="icons">
 			<div className="account">
@@ -52,9 +61,13 @@ function Header(){
 				</div>
 			</div>
 			<div className="cart">
-				<div className="mainHolder">
+				<div className="mainHolder" onMouseOver={handleCartHover}
+						onMouseOut={handleCartOut}>
 					<i className="icon-size circleIcon fas fa-shopping-cart"></i>
 					<span className="cart-heading">سبد خرید</span>
+					<div className="megaMenuHeader megaMenuSingle" style={{visibility:cartMenu}}>
+						<CartMenu />
+					</div>
 				</div>
 			</div>
 			</div>

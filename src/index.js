@@ -16,6 +16,8 @@ import Layout from './components/Layout'
 import Shop from './pages/Shop';
 import Product from './pages/Product';
 import Category from './pages/Category';
+import Cart from './pages/Cart';
+import Login from './pages/Login';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -27,6 +29,8 @@ ReactDOM.render(
           <Route path="/shop" component={Shop}/>
           <Route path="/category/:title" component={Category}/>
           <Route path="/product" component={Product}/>
+          <Route path="/cart" component={Cart}/>
+          <Route path="/login" component={Login}/>
          </Switch>
        </Router>
       </Layout>

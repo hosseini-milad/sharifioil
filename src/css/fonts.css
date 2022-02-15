@@ -36,6 +36,12 @@
 .fa-angle-down::before {
     content: "\f107";
 }
+.fa-angle-left::before {
+    content: "\f104";
+}
+.fa-close::before {
+    content: "\f057";
+}
 .fa-shopping-cart::before {
     content: "\f07a";
 }

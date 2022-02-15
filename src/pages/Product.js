@@ -19,7 +19,7 @@ function Product(){
           </MetaTags>
         {ProductData&&<div><main>
             <BreadCrumb pName={" محصولات / "+ProductData.products.nodes[0].sku}/>
-            
+             
             <ProductMain product={ProductData.products.nodes[0]}/>
         </main>
         <ProductDetail product={ProductData.products.nodes[0]}/></div>}
