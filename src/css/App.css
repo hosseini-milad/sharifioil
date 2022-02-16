@@ -2060,4 +2060,22 @@ padding: 9px 20px;
 	.cartSide ,  .cartMain {width: 100%;}
 	.link_amsoil-large{display: none;}
 	.mobileHide{display: none;}
+
+
+	.offerImg img {height: 140px;}
+	.offer {width: 96%;display: flex;}
+	.offerImg img {height: 140px; object-fit: contain;}
+	.offerImg {width: 30%;}
+	.offerText h4 {height: 27px;}
+	.offerShare,.youSave {display: none;}
+	.offerButton{
+		position: absolute;
+		left: -4px;
+		top: 10px;
+		height: 35px;
+		width: 56px;
+		border-radius: 0 5px 5px 0;
+	}
+	.modal-product-detail {bottom: -25px;}
+	.modal-content {margin-bottom: 40px;}
 }
