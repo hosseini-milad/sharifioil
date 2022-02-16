@@ -26,7 +26,7 @@ export const PRODUCT_LIST_QUERY = gql`query {
     }
 }`
 export const PRODUCT_NOT_LABEL_QUERY = gql`query {
-    products(first: 4, where:{categoryNotIn: "A4 Sheets"}) {
+    products(first: 4) {
       ${PRODUCT_NODE}
     }
 }`
@@ -76,3 +76,57 @@ export const BRAND_QUERY=gql`query MyQuery {
   }
 }
 `
+
+
+export const ADD_USER_MUTATION=(userName,passWord,eMail)=>{
+  return (gql`mutation MyMutation {
+  registerUser(input: {username:"${userName}", password:"${passWord}", email:"${eMail}"}) {
+    clientMutationId
+  }
+}`)}
+
+export const LOGIN_USER_MUTATION=(userName,passWord)=>{return(gql`
+mutation LoginUser {
+  login( input:{username:"${userName}", password:"${passWord}"}) {
+    authToken
+    user {
+      id
+      name
+    }
+  }
+}
+`)}
+
+
+
+export const ADD_TO_CART = gql`
+    mutation ADD_TO_CART($input: AddToCartInput!) {
+      addToCart(input: $input) {
+        cartItem {
+          key
+          product {
+            node {
+              id
+              databaseId
+              name
+              description
+              type
+              onSale
+              slug
+              image {
+                id
+                sourceUrl
+                srcSet
+                sizes
+                altText
+              }
+            }
+          }
+          quantity
+          total
+          subtotal
+          subtotalTax
+        }
+      }
+    }
+`;

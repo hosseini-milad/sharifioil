@@ -1,6 +1,7 @@
 import { useState } from "react"
 import env from "../env"
 import CartMenu from "../modules/allPages/header/CartMenu";
+import LoginMenu from "../modules/allPages/header/loginMenu";
 import MegaMenuLable from "../modules/allPages/MegaMenuLable"
 import SearchArea from "../modules/allPages/SearchPart/SearchArea";
 
@@ -8,6 +9,7 @@ function Header(){
 	const [lblMenu,setLblMenu] = useState("none");
 	const [searchMenu,setSearch] = useState("hidden");
 	const [cartMenu,setCartMenu] = useState("hidden");
+	const [loginMenu,setLoginMenu] = useState("hidden");
     const handleLableMenuHover=()=>{
         setLblMenu("block")
 	}
@@ -25,6 +27,12 @@ function Header(){
 	}
 	const handleCartOut=()=>{
         setCartMenu("hidden")
+	}
+	const handleLoginHover=()=>{
+        setLoginMenu("visible")
+	}
+	const handleLoginOut=()=>{
+        setLoginMenu("hidden")
 	}
     return(
         <header>
@@ -54,10 +62,14 @@ function Header(){
 				</div>
 			</div>
 			<div className="account">
-				<div className="mainHolder">
+				<div className="mainHolder" onMouseOver={handleLoginHover}
+						onMouseOut={handleLoginOut}>
 					<i className="icon-size circleIcon fas fa-user"></i>
 					<div className="account-heading">حساب کاربری</div>
 					<i className="fas fa-angle-down"></i>
+					<div className="megaMenuHeader megaMenuSingle" style={{visibility:loginMenu}}>
+						<LoginMenu />
+					</div>
 				</div>
 			</div>
 			<div className="cart">

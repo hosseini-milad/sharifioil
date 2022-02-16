@@ -1966,7 +1966,15 @@ padding: 9px 20px;
 	line-height: 24px;
 	padding: 16px 0;
 }
-
+.Loggedin{
+	display: grid;
+	width: 100%;
+}
+.logout{
+	width: 44%;
+	height: 34px;
+	background-color: brown;
+}
 
 
 

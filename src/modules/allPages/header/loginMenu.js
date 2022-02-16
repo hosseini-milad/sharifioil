@@ -1,14 +1,10 @@
 import { useState } from "react";
-import {ADD_USER_MUTATION, LOGIN_USER_MUTATION} from '../components/Query'
+import {ADD_USER_MUTATION, LOGIN_USER_MUTATION} from '../../../components/Query'
 import { useMutation} from "@apollo/client";
-import env from "../env";
-
-
-
+import env from "../../../env";
 var create_user = 0;
 
-function Login(){
-    
+function LoginMenu(){
     const [mobile_phone, setMobile] = useState('');
     const [privateOtp, setPrivOTP] = useState('');
     const [otp, setOTP] = useState('');
@@ -76,30 +72,42 @@ function Login(){
       const logOut=()=>{
         localStorage.removeItem('oil-login');
       }
-    return(<div className="loginHandler">
-        {!token&&<div className="notLogin">{!mobileEnter&&<>
-            <strong>ورود/ثبت نام</strong>
-            <span>شماره موبایل خود را وارد کنید</span>
-            <input type="text" placeholder="شماره تماس" onChange={event=>setMobile(event.target.value)}></input>
-            <button className="modal-content-button" onClick={handleSendCode}>دریافت کد</button></>}
+    return(<>
+    {!token&&<div className="notLogin">
+        {!mobileEnter&&
+        <div className="minicartData">
+            <div className="item-cart-quantity" style={{display:"grid"}}>
+                <strong>ورود/ثبت نام</strong>
+                <small>شماره موبایل خود را وارد کنید</small>
             
-        {mobileEnter&&<>
-            <strong>کد تایید را وارد نمایید</strong>
-            <span>کد تایید برای شماره {mobile_phone} ارسال گردید</span>
+                <input type="text" onChange={event=>setMobile(event.target.value)}/>
+            </div>
+            <div className="cartpopup">
+                <a onClick={handleSendCode} className="modal-sub-btn">
+                دریافت کد</a>
+            </div>
+        </div>}
+        {mobileEnter&&
+            <div className="minicartData">
+            <div className="item-cart-quantity" style={{display:"grid"}}>
+            <strong>ورود/ثبت نام</strong>
+            <span>کد تایید را وارد نمایید</span>
+            <small>کد تایید برای شماره {mobile_phone} ارسال گردید</small>
             <input type="otp" placeholder="کد یکبار مصرف" 
             onChange={event=>setOTP(event.target.value)}></input>
-            
-        </>  }
+            </div> 
+        </div>  }
         {mobileEnter&&otp === privateOtp.toString()?handleLogin():''}
         </div>}
-        {token&&<div className="Login">
-          User Loged In
+        {token&&<div className="Loggedin">
+          کاربر {mobile_phone} 
+          <a href="/profile" className="modal-sub-btn">
+                حساب کاربری</a>
           <form>
-            <input onClick={logOut} type="submit" value="خروج" />
+            <input onClick={logOut} type="submit" value="خروج" className="modal-sub-btn logout"/>
           </form>
           </div>}
-      </div> 
 
-    )
+</>)
 }
-export default Login
+export default LoginMenu
