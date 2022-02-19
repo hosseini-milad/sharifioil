@@ -5,7 +5,7 @@ import LoginMenu from "../modules/allPages/header/loginMenu";
 import MegaMenuLable from "../modules/allPages/MegaMenuLable"
 import SearchArea from "../modules/allPages/SearchPart/SearchArea";
 
-function Header(){
+function Header(props){
 	const [lblMenu,setLblMenu] = useState("none");
 	const [searchMenu,setSearch] = useState("hidden");
 	const [cartMenu,setCartMenu] = useState("hidden");
@@ -78,7 +78,7 @@ function Header(){
 					<i className="icon-size circleIcon fas fa-shopping-cart"></i>
 					<span className="cart-heading">سبد خرید</span>
 					<div className="megaMenuHeader megaMenuSingle" style={{visibility:cartMenu}}>
-						<CartMenu />
+						<CartMenu cart={props.cart}/>
 					</div>
 				</div>
 			</div>

@@ -15,7 +15,7 @@ function QuickView(props){
                 <ProductMainDetail product={productInfo} />
                 
                 <a href={"/product/"+productInfo.sku} className="modal-product-detail" >جزئیات کامل محصول 
-                <i class="fas fa-angle-left"></i></a>
+                <i className="fas fa-angle-left"></i></a>
             </div>
             )}
         </Popup>

@@ -5,7 +5,6 @@ import { useState } from 'react';
 import ProductSingle from '../allPages/productSingle';
 function LastProducts(){
 	const notLable= FetchApi(PRODUCT_NOT_LABEL_QUERY)
-	console.log(notLable);
 	const labels = FetchApi(PRODUCT_OFFER_QUERY);
 	const [tabIndex,setTabIndex] = useState(0);
     return(

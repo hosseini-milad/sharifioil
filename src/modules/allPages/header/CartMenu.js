@@ -1,4 +1,9 @@
-function CartMenu(){
+import FetchGraph from "../../../components/fetchGraph"
+import { TOTAL_CART } from "../../../components/Query"
+
+function CartMenu(props){
+    const cart = props.cart;
+    console.log(cart)
     return(
         <div className="minicartData">
             <div className="item-cart-quantity">

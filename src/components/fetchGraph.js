@@ -3,7 +3,7 @@ import {useQuery} from "@apollo/client";
 
 function FetchGraph(query){
     const [item, setItem] = useState('')
-    const {data, refetch} = useQuery(query, {
+    const {data} = useQuery(query, {
         notifyOnNetworkStatusChange: true,
         onCompleted: () => {
             const updatedCart = data;

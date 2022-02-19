@@ -22,8 +22,9 @@ function PostDetail(props){
     </div>
     <div className="blogImg">
         <div className="blogimg-anim">
-            <img className=""  alt="The right size labels" 
-            src={catImg&&catImg.media_details.sizes.medium_large.source_url} />
+            <img className=""  alt={catData.title.rendered} 
+            src={catImg&&catImg.media_details.sizes.medium_large&&
+                 catImg.media_details.sizes.medium_large.source_url} />
         </div>
     </div>
 </div>

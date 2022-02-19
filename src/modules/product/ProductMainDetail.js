@@ -1,8 +1,32 @@
+import { useMutation } from "@apollo/client";
+import { useState } from "react";
 import CounterInput from "react-counter-input";
+import { ADD_TO_CART } from "../../components/Query";
 import { normalPrice } from "../../env";
 
 function ProductMainDetail(props){
     const product = props.product;
+    console.log(product.databaseId)
+    const [cartAdd,setCartAdd] = useState('');
+    const [addToCart] = useMutation(ADD_TO_CART(product.databaseId), {
+        
+        onCompleted: (data) => {
+          console.log('item added')
+          setCartAdd(data);
+          //cartAdded(1)
+          //history.push("/cart")
+          //window.open("/cart").focus(); 
+  
+            
+        },
+        onError: (error) => {
+          console.log("Error!",error)
+        }
+      });
+    const handleAddToCart=(productId)=>{
+        const result = addToCart();
+    }
+    console.log(cartAdd)
     return(
         <div className="modal-content">
         <div className="modal-product">
@@ -11,14 +35,14 @@ function ProductMainDetail(props){
                 <h3>{product.name}</h3>
                 <small >{"کد محصول: "+product.sku}</small>
                 <i>{product.productCategories.nodes[0].name}</i>
-                <p class="modal-product-content" dangerouslySetInnerHTML={{__html:product.shortDescription}}></p>
+                <p className="modal-product-content" dangerouslySetInnerHTML={{__html:product.shortDescription}}></p>
                 </div>
                 
         </div>
         <div className="pop-xtra-content">
         <div className="selectPart">
                 <strong className="pricePop">{normalPrice(product.price)+ " تومان "}</strong>
-                <div class="youSave">
+                <div className="youSave">
                     <small>قیمت عمده: 200.000 تومان</small>
                     <span> تخفیف: <b>50.000</b> تومان</span>
                     <a href="" style={{textAlign: "left"}}><small>شرایط تخفیف</small></a>
@@ -39,7 +63,7 @@ function ProductMainDetail(props){
                         onCountChange={count => console.log(count)}
                     />
                 </div>
-                <a className="modal-sub-btn" href="/cart">افزودن به سبد خرید</a>
+                <a className="modal-sub-btn" onClick={()=>handleAddToCart()}>افزودن به سبد خرید</a>
             </div>
             
         </div>

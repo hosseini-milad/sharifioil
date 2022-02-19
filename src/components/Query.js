@@ -99,9 +99,10 @@ mutation LoginUser {
 
 
 
-export const ADD_TO_CART = gql`
-    mutation ADD_TO_CART($input: AddToCartInput!) {
-      addToCart(input: $input) {
+export const ADD_TO_CART = (productId)=>{
+  return(gql`
+    mutation ADD_TO_CART {
+      addToCart(input: {productId: ${productId}, quantity: 2}) {
         cartItem {
           key
           product {
@@ -129,4 +130,39 @@ export const ADD_TO_CART = gql`
         }
       }
     }
+`)};
+
+
+export const TOTAL_CART = gql`query MyQuery {
+  cart {
+    contents {
+      nodes {
+        key
+        quantity
+        total
+        subtotal 
+        product {
+          node {
+            name
+            databaseId
+            slug
+            ... on SimpleProduct {
+              price
+              regularPrice
+            }
+            image {
+              databaseId
+              sizes
+              sourceUrl
+              srcSet
+            }
+          }
+        }
+      }
+    }
+    total
+    discountTotal
+    feeTotal
+  }
+}
 `;
