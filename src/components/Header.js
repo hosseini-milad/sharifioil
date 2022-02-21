@@ -2,38 +2,35 @@ import { useState } from "react"
 import env from "../env"
 import CartMenu from "../modules/allPages/header/CartMenu";
 import LoginMenu from "../modules/allPages/header/loginMenu";
-import MegaMenuLable from "../modules/allPages/MegaMenuLable"
+import MegaMenuAccessory from "../modules/allPages/MegaMenuAccessory";
+import MegaMenuLubricant from "../modules/allPages/MegaMenuLubrican";
+import MegaMenuOil from "../modules/allPages/MegaMenuOil";
 import SearchArea from "../modules/allPages/SearchPart/SearchArea";
 
-function Header(){
-	const [lblMenu,setLblMenu] = useState("none");
+function Header(props){
+	const [oilMenu,setOilMenu] = useState("none");
+	const [lubMenu,setLubMenu] = useState("none");
+	const [accMenu,setAccMenu] = useState("none");
 	const [searchMenu,setSearch] = useState("hidden");
 	const [cartMenu,setCartMenu] = useState("hidden");
 	const [loginMenu,setLoginMenu] = useState("hidden");
-    const handleLableMenuHover=()=>{
-        setLblMenu("block")
-	}
-	const handleLableMenuOut=()=>{
-        setLblMenu("none")
-	}
-	const handleSearchHover=()=>{
-        setSearch("visible")
-	}
-	const handleSearchOut=()=>{
-        setSearch("hidden")
-	}
-	const handleCartHover=()=>{
-        setCartMenu("visible")
-	}
-	const handleCartOut=()=>{
-        setCartMenu("hidden")
-	}
-	const handleLoginHover=()=>{
-        setLoginMenu("visible")
-	}
-	const handleLoginOut=()=>{
-        setLoginMenu("hidden")
-	}
+	
+	const handleOilMenuHover=()=>{setOilMenu("block")}
+	const handleOilMenuOut=()=>{setOilMenu("none")}
+	const handleLubMenuHover=()=>{setLubMenu("block")}
+	const handleLubMenuOut=()=>{setLubMenu("none")}
+	const handleAccMenuHover=()=>{setAccMenu("block")}
+	const handleAccMenuOut=()=>{setAccMenu("none")}
+	
+	const handleSearchHover=()=>{setSearch("visible")}
+	const handleSearchOut=()=>{setSearch("hidden")}
+	
+	const handleCartHover=()=>{setCartMenu("visible")}
+	const handleCartOut=()=>{setCartMenu("hidden")}
+	
+	const handleLoginHover=()=>{setLoginMenu("visible")}
+	const handleLoginOut=()=>{setLoginMenu("hidden")}
+
     return(
         <header>
 		<div className="topHeader">
@@ -54,8 +51,8 @@ function Header(){
 					<i className="fas fa-angle-down"></i>
 					<div className="megaMenuHeader" style={{visibility:searchMenu}}>
 						<div className="megaSideBar">
-							<h3>Look Up a Vehicle</h3>
-							<p>The fastest and easiest way to determine which AMSOIL products you need. View all guides ›</p>
+							<h3>جستجوی خودرو</h3>
+							<p>سریع ترین و ساده ترین راه برای تعیین اینکه به کدام محصولات نیاز دارید. مشاهده همه راهنماها ›</p>
 						</div>
 						<SearchArea />
 					</div>
@@ -78,7 +75,7 @@ function Header(){
 					<i className="icon-size circleIcon fas fa-shopping-cart"></i>
 					<span className="cart-heading">سبد خرید</span>
 					<div className="megaMenuHeader megaMenuSingle" style={{visibility:cartMenu}}>
-						<CartMenu />
+						<CartMenu cart={props.cart}/>
 					</div>
 				</div>
 			</div>
@@ -87,16 +84,28 @@ function Header(){
 		<div className="menu">
 			<div className="menuNavBar">
 				<ul>
-					<li className="menuItem" onMouseOver={handleLableMenuHover}
-						onMouseOut={handleLableMenuOut}> دسته بندی روغن موتور
+					<li className="menuItem" onMouseOver={handleOilMenuHover}
+						onMouseOut={handleOilMenuOut}> روغن موتور
 						<i className="fas fa-chevron-down"></i>
-						<div className="MegaMenuLable" style={{display:lblMenu}}>
-							<MegaMenuLable />
+						<div className="MegaMenuLable" style={{display:oilMenu}}>
+							<MegaMenuOil />
 						</div>
 					</li>
-					<li className="menuItem hideMenu">ریبون</li>
-					<li className="menuItem hideMenu">رول حرارتی</li>
-					<li className="menuItem hideMenu">راهنمایی</li>
+					<li className="menuItem" onMouseOver={handleLubMenuHover}
+						onMouseOut={handleLubMenuOut}>روان کننده موتور
+						<i className="fas fa-chevron-down"></i>
+						<div className="MegaMenuLable" style={{display:"none"/*lubMenu*/}}>
+							<MegaMenuLubricant />
+						</div>
+						</li>
+					<li className="menuItem" onMouseOver={handleAccMenuHover}
+						onMouseOut={handleAccMenuOut}>محصولات جانبی
+						<i className="fas fa-chevron-down"></i>
+						<div className="MegaMenuLable" style={{display:"none"/*accMenu*/}}>
+							<MegaMenuAccessory />
+						</div>
+						</li>
+					<li className="menuItem hideMenu">راهنمای روغن</li>
 				</ul>
 			</div>
 			<div className="contact">

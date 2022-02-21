@@ -14,7 +14,7 @@ function SideBar(){
     <h3>فروشگاه</h3>
     <h4>بر اساس محصول</h4>
     <span>روغن موتور</span>
-    <div class="filterCat">روغن موتور گازوئیلی</div>
+    <div className="filterCat">روغن موتور گازوئیلی</div>
     <Accordion preExpanded={['0']} allowZeroExpanded>
             <AccordionItem uuid={'0'}>
                 <AccordionItemHeading>

@@ -8,14 +8,14 @@ import ProductMainDetail from '../product/ProductMainDetail';
 function QuickView(props){
     const productInfo = props.product;
     return(
-        <Popup trigger={<div className="buttonHandler"><img src="https://img.icons8.com/material-sharp/24/ffffff/fast-cart.png" /> </div>} modal nested>
+        <Popup trigger={<div className="buttonHandler"><i class="icon-size fas fa-shopping-cart"></i> </div>} modal nested>
             {close => (
             <div className="modal">
                 <div className="modal-header"> <img src="https://sharifoilco.com/assets/imgs/header-logo.png"/> </div>
                 <ProductMainDetail product={productInfo} />
                 
                 <a href={"/product/"+productInfo.sku} className="modal-product-detail" >جزئیات کامل محصول 
-                <i class="fas fa-angle-left"></i></a>
+                <i className="fas fa-angle-left"></i></a>
             </div>
             )}
         </Popup>

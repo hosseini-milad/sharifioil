@@ -16,14 +16,17 @@ function PostDetail(props){
         <h2>
             {catData.title&&catData.title.rendered}	
         </h2>
-        <p dangerouslySetInnerHTML={{__html:catData.excerpt.rendered}}>
+        <p className="postContent" 
+        dangerouslySetInnerHTML={{__html:catData.content.rendered.split('<h')[0]}}>
         </p>
         <a href={catData.link} >مشاهده مطلب</a>
     </div>
     <div className="blogImg">
         <div className="blogimg-anim">
-            <img className=""  alt="The right size labels" 
-            src={catImg&&catImg.media_details.sizes.medium_large&&catImg.media_details.sizes.medium_large.source_url} />
+            <img className=""  alt={catData.title.rendered} 
+            src={catImg&&catImg.media_details.sizes.medium_large?
+                 catImg.media_details.sizes.medium_large.source_url:
+                 catImg.source_url} />
         </div>
     </div>
 </div>

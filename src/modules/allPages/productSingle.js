@@ -1,10 +1,15 @@
+import { useState } from 'react'
 import {normalPrice} from '../../env'
 import QuickView from '../../modules/CategoryPage/QuickView'
 
+    const siteWidth = window.innerWidth;
 function ProductSingle(props){
     const product = props.product
+    const [showMobileIcon,setMobileIcon] = useState(0);
     return(
-        <div className="offer" key={product.databaseId}>
+        <div className="offer" key={product.databaseId} 
+            onMouseOver={()=>setMobileIcon(1)}
+            onMouseOut={()=>setMobileIcon(0)}>
 					
             <div className="offerImg">
                 <img src={product.image.sourceUrl} alt={product.name} />
@@ -30,7 +35,8 @@ function ProductSingle(props){
                         <a href="" style={{textAlign: "left"}}><small>شرایط تخفیف</small></a>
                     </div>
                 </div>
-                <div className="offerButton">
+                <div className="offerButton" 
+                    style={{display:showMobileIcon||siteWidth>700?"block":"none"}}>
                     <QuickView product={product} />
                 </div>
             </div>

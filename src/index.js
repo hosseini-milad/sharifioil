@@ -27,6 +27,7 @@ ReactDOM.render(
          <Switch>
           <Route exact path="/" component={Home}/>
           <Route path="/shop" component={Shop}/>
+          <Route exact path="/category" component={Shop}/>
           <Route path="/category/:title" component={Category}/>
           <Route path="/product" component={Product}/>
           <Route path="/cart" component={Cart}/>

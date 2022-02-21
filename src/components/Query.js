@@ -44,7 +44,7 @@ export const PRODUCT_TAG_QUERY = gql` query {
 }
 `
 export const PRODUCT_OFFER_QUERY = gql`query {
-    products(first: 4) {
+    products(last: 4) {
       ${PRODUCT_NODE} 
     }
 }`
@@ -76,7 +76,20 @@ export const BRAND_QUERY=gql`query MyQuery {
   }
 }
 `
+export const CATEGORIES_QUERY=gql`
+query MyQuery {
+  productCategories(first: 10) {
+    nodes {
+      image {
+        sourceUrl
+      }
+      name
+      slug
+    }
+  }
+}
 
+`
 
 export const ADD_USER_MUTATION=(userName,passWord,eMail)=>{
   return (gql`mutation MyMutation {
@@ -99,34 +112,27 @@ mutation LoginUser {
 
 
 
-export const ADD_TO_CART = gql`
-    mutation ADD_TO_CART($input: AddToCartInput!) {
-      addToCart(input: $input) {
+export const ADD_TO_CART = (productId)=>{
+  return(gql`
+    mutation ADD_TO_CART {
+      addToCart(input: {productId: ${productId}, quantity: 1}) {
         cartItem {
           key
           product {
             node {
-              id
               databaseId
               name
-              description
-              type
-              onSale
-              slug
-              image {
-                id
-                sourceUrl
-                srcSet
-                sizes
-                altText
-              }
             }
           }
-          quantity
-          total
-          subtotal
-          subtotalTax
         }
       }
     }
+`)};
+
+
+export const TOTAL_CART = gql`query MyQuery {
+  cart {
+    total
+  }
+}
 `;

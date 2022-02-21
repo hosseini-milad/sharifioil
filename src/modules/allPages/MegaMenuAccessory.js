@@ -1,14 +1,14 @@
 import { PRODUCT_LIST_QUERY } from "../../components/Query"
 import FetchApi from '../../components/fetchGraph'
 
-function MegaMenuLable(){
+function MegaMenuAccessory(){
     const popLable = FetchApi(PRODUCT_LIST_QUERY)
     return(
     <div className="menuMegaLable">
         <div className="menuMain">
             <div className="megaItems">
                 <a className="megaItem" href="/category/labels">
-                    <div className="megaItemText"><strong>نوع وسیله نقلیه</strong>
+                    <div className="megaItemText"><strong>نوع وسیله جانبی</strong>
                     <small>فیلتر بر اساس نوع ماشین</small></div>
                     <img src="https://carinzo.com/storage/2021/05/%D8%B1%D9%88%D8%BA%D9%86-%D9%85%D9%88%D8%AA%D9%88%D8%B1-%D8%A2%D8%B1%DB%8C%D8%A7-%D8%A7%D8%B3-%D8%A7%D9%85-%D9%81%D8%B1%D9%88%D8%B4%DA%AF%D8%A7%D9%87-%D8%A7%DB%8C%D9%86%D8%AA%D8%B1%D9%86%D8%AA%DB%8C-%DA%A9%D8%A7%D8%B1%DB%8C%D9%86%D8%B2%D9%88-600x600.jpg?v=1628580273" />
                 </a>
@@ -53,4 +53,4 @@ function MegaMenuLable(){
     </div>
         )
 }
-export default MegaMenuLable
+export default MegaMenuAccessory

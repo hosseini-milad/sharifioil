@@ -40,7 +40,7 @@ header{
 }
 main{
 	max-width: 1500px;
-	margin: 30px 5%;
+	margin: 30px 2%;
 }
 select{ 
 	box-shadow: 0 1px 3px rgba(0,0,0,.2);
@@ -86,10 +86,10 @@ label{
 	position: relative;
 }
 .menu{
-	background-color:var(--main-dark);
+	background-color:var(--main-color);
 }
 .menu li{
-	position: relative;
+	
 }
 .menu li i{
 	font-size: 14px;
@@ -185,7 +185,7 @@ border-top: 1px solid;
 }
 .megaMenuBanner{
 	background: #eee;
-	background-image: url('https://uk.onlinelabels.com/images/header/rolls-banner.png');
+	background-image: url('https://www.amsoil.com/medias/gasoline-motor-oil-us.jpg?context=bWFzdGVyfHJvb3R8MTc2Njh8aW1hZ2UvanBlZ3xoZWMvaDhkLzg4MTQ3MjQ0ODEwNTQuanBnfDIyMDViOWJmMDNkYjIwNWZkMzQ2ZmFhZWNiODY4ZjJiNzZiNjFlYjM1MmEwMzAxOTAwOWI4NDlhOTMzNzNjZjQ');
 	background-position: bottom left;
 	background-repeat: no-repeat;
 	background-size: auto 100%;
@@ -233,9 +233,10 @@ border-top: 1px solid;
 }
 .circleIcon{
 	background-color: var(--main-color);
-	width: 26px;
 	height: 26px;
-	padding: 3px 7px 4px 0px;
+	padding: 3px;
+	width: 26px;
+	text-align: center;
 	border-radius: 50%;
 	color:#fff;
 }
@@ -246,6 +247,9 @@ border-top: 1px solid;
 	display: flex;
 	color:var(--main-light);
 	margin: auto;
+}
+.notLogin{
+	width: 100%;
 }
 .account-heading{
 	padding:0 10px;
@@ -472,6 +476,7 @@ object-fit: cover;
 	list-style: none;
 	display:flex;
 	margin: auto;
+	position: relative;
 }
 .menuItem{
 	color: #fefefe;
@@ -678,8 +683,8 @@ max-width: 11rem;
 	margin:80px auto;
 }
 .blogPart p{
-	font-size: 1.1rem;
-	line-height: 1.75rem;
+	font-size: 15px;
+	line-height: 1.5rem;
 	color: var(--p-color);
 }
 .blogText{
@@ -737,6 +742,13 @@ max-width: 11rem;
 	margin: 2%;
 	box-shadow: var(--box-shadow-inner);
 }
+.postContent{
+	overflow: hidden;
+	height: 163px;
+	-webkit-line-clamp: 6;
+	-webkit-box-orient: vertical;
+	display: -webkit-box;
+}
 .img-anim{
 	
 }
@@ -750,7 +762,7 @@ max-width: 11rem;
 /*	Products	*/
 .products{
 	display:grid;
-	margin-top:70px;
+	margin-top:60px;
 }
 .products h2{
 	color:var(--button-color);
@@ -760,7 +772,7 @@ max-width: 11rem;
 }
 .productHolder{
 	width:100%;
-	margin: 70px auto;
+	margin: 20px auto 0;
 }
 .productList{
 	display:flex;
@@ -1058,13 +1070,14 @@ justify-content: center;
 	justify-content: center;
 }
 .offer{
-	width: 19%;
+	width: 20%;
 	padding: 10px 2%;
 	position: relative;
-	margin: auto 1%;
-	border-radius: 5px;
+	margin: auto 0%;
+	border-radius: 0px;
 	font-size:15px;
 	min-width: 145px;
+	border: 1px solid silver;
 }
 .offer:hover{
 	box-shadow: var(--box-shadow-Menu);
@@ -1170,8 +1183,8 @@ font-size: 13px;
 /*	Footer	*/
 footer{
 	width:100%;
-	background-color:var(--font-dark);
 	min-height:80px;
+	background-color: #093B66;
 	
 }
 .footerHolder{
@@ -1179,14 +1192,32 @@ footer{
 	width:90%;
 	margin:auto;
 	color: var(--button-font-color);
-	padding: 50px 5%;
-	border-bottom: 10px solid var(--third-color);
+	padding: 40px 5% 20px;
+}
+.footerHolder h4{
+	color:#fff;
+}
+.mainSocial{
+	margin-left:4%;
 }
 .col25{
 	width:25%;
 }
 .col50{
 	width:50%;
+}
+.col25 ul{
+	list-style: none;
+	padding: 0;
+}
+.col25 li{
+	font-size: 13px;
+	padding:0;
+	cursor: pointer;
+}
+.col25 li:hover{
+	color:var(--border-color);
+	text-decoration: underline;
 }
 .logoCol{
 	display:grid;
@@ -1201,8 +1232,10 @@ footer{
 	font-size:30px;
 	margin-right:20px;
 }
+.footerLogo img{
+	filter: brightness(10);
+}
 .footerSocial{
-	background-color: #736F6F;
 	border-radius: 20px;
 	width: 90%;
 	margin: 20px auto 0;
@@ -1211,15 +1244,16 @@ footer{
 }
 .footerSocial i{
 	font-size: 27px;
-	color:var(--font-dark);
+	color:#fff;
+	cursor: pointer;
 }
 .footerSocial i:hover{
-	color:var(--button-color);
+	color:#2db742;
 }
 .namadHolder{
 	display:flex;
 	width:80%;
-	margin:auto;
+	margin:20px auto;
 }
 .namadHolder img{
 	width:100%;
@@ -1230,11 +1264,11 @@ footer{
 	display: flex;
 	width: 90%;
 	margin: auto;
-	color: var(--main-light);
-	padding: 10px 5%;
-	border-top: 10px solid var(--button-color);
+	color: var(--button-font-color);
+	padding: 5px 5%;
 	text-align: center;
 	font-size: 13px;
+	background-color: var(--border);
 }
 
 
@@ -1320,10 +1354,8 @@ footer{
 	min-width: 22%;
 	margin: 20px 1.3%;
 	position: relative;
-	border:2px solid var(--footer-back);
 	border-radius: 15px;
 	overflow: hidden;
-	box-shadow: var(--box-shadow-inner);
 }
 .shopPlace img{
 	width:100%;
@@ -1331,14 +1363,11 @@ footer{
 	object-fit: cover;
 }
 .productText{
-	position: absolute;
-	bottom: 0px;
 	text-align: center;
 	width: 100%;
 	background-color: #fff;
 	margin: 0;
-	padding: 15px 0;
-	border-top: 2px solid var(--footer-back);
+	padding: 5px 0;
 }
 
 
@@ -1663,10 +1692,10 @@ margin: 30px auto;
 	box-shadow: 0 3px 12px rgba(0,0,0,.2);
 }
 .categorySide{
-	width:25%;
+	width:18%;
 }
 .categoryMain{
-	width:75%;
+	width:82%;
 }
 .imageContainer{
 	text-align: center;
@@ -1857,6 +1886,19 @@ line-height: 22px;
 	padding-right: 10px;
 	font-size: 13px;
 }
+.filterShop{
+	border-right: 3px solid transparent;
+	margin: 5px 0;
+	padding-right: 10px;
+	font-size: 13px;
+	transition: .3s all;
+	cursor: pointer;
+}
+.filterShop:hover{
+	border-right: 3px solid var(--second-color);
+	padding-right: 16px;
+	
+}
 .filterValue{
 	display:flex;
 	justify-content: space-between;
@@ -1976,7 +2018,42 @@ padding: 9px 20px;
 	background-color: brown;
 }
 
-
+.shopHolder{
+	display:flex;
+}
+.shopButton{
+	position: absolute;
+	top: 80px;
+	right: 23%;
+	width: 50%;
+}
+.topFooter{
+	font-size: 13px;
+	padding: 5px 5%;
+	background-color: #F0F0F0;
+	display: flex;
+	justify-content: space-evenly;
+}
+.topFooter strong{
+	margin: auto 0;
+}
+.topFooter a{
+	display: inline-block;
+	padding: 5px 15px !important;
+	margin: 5px 0;
+	color: #000000 !important;
+	background-color: #fff;
+	padding: 10px 35px;
+	border-radius: 3px;
+	border: #333 1px solid;
+	text-align: center;
+}
+.topFooter a:hover{
+	color: #ffffff !important;
+text-decoration: none !important;
+background-color: #565656 !important;
+border-color: #565656 !important;
+}
 
 @media(max-width:700px){
 	.logo {width: auto;}
@@ -1994,8 +2071,9 @@ padding: 9px 20px;
 	.megaMenuHeader {width:94%;display: grid;}
 	.megaSideBar {width: 95%;}
 	.menu ul {}
-	.menu li {white-space: nowrap;}
-
+	.menu li {white-space: nowrap;font-size: 13px;padding: 10px 7px;}
+	.MegaMenuLable {top: 41px;}
+	.offerText {padding-right: 8px;width: 80%;}
 	.vehiclePart {width: 100% !important; display: flex !important;}
 	.vehiclePart span{display:none;}
 	.vehiclePart li img {width: 60px;}
@@ -2060,11 +2138,12 @@ padding: 9px 20px;
 	.cartSide ,  .cartMain {width: 100%;}
 	.link_amsoil-large{display: none;}
 	.mobileHide{display: none;}
-
+	.offerTabs li {font-size: 13px;}
+	.offerHolder {width: 88%;}
 
 	.offerImg img {height: 140px;}
-	.offer {width: 96%;display: flex;}
-	.offerImg img {height: 140px; object-fit: contain;}
+	.offer {width: 96%;display: flex;padding: 0px 2%;}
+	.offerImg img {height: 110px; object-fit: contain;}
 	.offerImg {width: 30%;}
 	.offerText h4 {height: 27px;}
 	.offerShare,.youSave {display: none;}
@@ -2078,4 +2157,5 @@ padding: 9px 20px;
 	}
 	.modal-product-detail {bottom: -25px;}
 	.modal-content {margin-bottom: 40px;}
+	.topFooter {display:grid;}
 }
