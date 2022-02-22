@@ -19,9 +19,12 @@ const PRODUCT_NODE=`nodes {
         price
         regularPrice
     }
+    carsuitable {
+      grade
+    }
 }`
 export const PRODUCT_LIST_QUERY = gql`query {
-    products(first: 10, where:{orderby: {field: DATE, order: ASC}}) {
+    products(first: 100, where:{orderby: {field: DATE, order: ASC}}) {
         ${PRODUCT_NODE}
     }
 }`
@@ -30,6 +33,24 @@ export const PRODUCT_NOT_LABEL_QUERY = gql`query {
       ${PRODUCT_NODE}
     }
 }`
+export const SLIDER_QUERY = gql`query MyQuery {
+  slides(first: 3) {
+    nodes {
+      databaseId
+      title
+      featuredImage {
+        node {
+          sourceUrl
+          srcSet
+          sizes
+        }
+      }
+    }
+  }
+}
+
+`
+
 export const PRODUCT_QUERY=(sku)=>{
     return(gql`query {
     products(first: 1,where:{sku:"${sku}"}) {
@@ -132,7 +153,35 @@ export const ADD_TO_CART = (productId)=>{
 
 export const TOTAL_CART = gql`query MyQuery {
   cart {
+    contents {
+      nodes {
+        key
+        quantity
+        total
+        subtotal 
+        product {
+          node {
+            name
+            databaseId
+            sku
+            slug
+            ... on SimpleProduct {
+              price
+              regularPrice
+            }
+            image {
+              databaseId
+              sizes
+              sourceUrl
+              srcSet
+            }
+          }
+        }
+      }
+    }
     total
+    discountTotal
+    feeTotal
   }
 }
 `;

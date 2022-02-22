@@ -1,7 +1,11 @@
-function CartMainPart(){
+import { normalPrice } from "../../env";
+
+function CartMainPart(props){
+    const cart= props.cart;
     return(<>
         <div className="cartTable">
             <table>
+            <tbody>
                 <tr className="cartTableHeader">
                     <th className="cartMainTH">جزئیات محصول</th>
                     <th className="cartAltTH mobileHide">قیمت</th>
@@ -9,62 +13,31 @@ function CartMainPart(){
                     <th className="cartAltTH mobileHide">مجموع</th>
                     <th className="cartAltTH"> </th>
                 </tr>
-                <tr>
-                    <td>
-                    <div className="inner-wrap">
-                        <img alt="Synthetic 0W20 SS Motor Oil" title="Synthetic 0W20 SS Motor Oil" src="https://roghankala.com/28-large_default/%D8%B1%D9%88%D8%BA%D9%86-%D9%85%D9%88%D8%AA%D9%88%D8%B1-%D9%BE%D8%A7%D8%B1%D8%B3-%D8%B3%D9%88%D9%BE%D8%B1-%D9%BE%D8%A7%DB%8C%D8%A7-10w40-%DA%86%D9%87%D8%A7%D8%B1-%D9%84%D9%8A%D8%AA%D8%B1%D9%8A.jpg" />
-                        <div className="item-minicart">
-                            <span className="item-minicart-name">بهران اتوماتیک cvt</span>
-                            <small>کد محصول: ASMQT-EA</small>
-                            <div className="cartPrice">
-                                <span className="cartQty">تعداد :2</span>
-                                <span className="base-price">$14.79</span>
+                    {cart&&cart.cart.contents.nodes.map(cartItem=>(
+                        <tr key={cartItem.key}>
+                         <td>
+                            <div className="inner-wrap">
+                                <img alt={cartItem.product.node.name} title={cartItem.product.node.name} 
+                                    src={cartItem.product.node.image.sourceUrl} 
+                                    srcSet={cartItem.product.node.image.srcSet} 
+                                    sizes={cartItem.product.node.image.sizes} />
+                                <div className="item-minicart">
+                                    <span className="item-minicart-name">{cartItem.product.node.name}</span>
+                                    <small>کد محصول: {cartItem.product.node.sku}</small>
+                                    <div className="cartPrice">
+                                        <span className="cartQty">تعداد :{cartItem.quantity}</span>
+                                        <span className="base-price">{normalPrice(cartItem.total)}<sub className="base-Toman">تومان</sub></span>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    </td>
-                    <td className="mobileHide">250.000 تومان</td>
-                    <td className="mobileHide">2</td>
-                    <td className="mobileHide">500.000 تومان</td>
-                    <td><i className="icon-size fas fa-close"></i></td>
-                </tr>
-                <tr>
-                    <td>
-                    <div className="inner-wrap">
-                        <img alt="Synthetic 0W20 SS Motor Oil" title="Synthetic 0W20 SS Motor Oil" src="https://roghankala.com/28-large_default/%D8%B1%D9%88%D8%BA%D9%86-%D9%85%D9%88%D8%AA%D9%88%D8%B1-%D9%BE%D8%A7%D8%B1%D8%B3-%D8%B3%D9%88%D9%BE%D8%B1-%D9%BE%D8%A7%DB%8C%D8%A7-10w40-%DA%86%D9%87%D8%A7%D8%B1-%D9%84%D9%8A%D8%AA%D8%B1%D9%8A.jpg" />
-                        <div className="item-minicart">
-                            <span className="item-minicart-name">بهران اتوماتیک cvt</span>
-                            <small>کد محصول: ASMQT-EA</small>
-                            <div className="cartPrice">
-                                <span className="cartQty">تعداد :2</span>
-                                <span className="base-price">$14.79</span>
-                            </div>
-                        </div>
-                    </div>
-                    </td>
-                    <td className="mobileHide">250.000 تومان</td>
-                    <td className="mobileHide">2</td>
-                    <td className="mobileHide">500.000 تومان</td>
-                    <td><i className="icon-size fas fa-close"></i></td>
-                </tr><tr>
-                    <td>
-                    <div className="inner-wrap">
-                        <img alt="Synthetic 0W20 SS Motor Oil" title="Synthetic 0W20 SS Motor Oil" src="https://roghankala.com/28-large_default/%D8%B1%D9%88%D8%BA%D9%86-%D9%85%D9%88%D8%AA%D9%88%D8%B1-%D9%BE%D8%A7%D8%B1%D8%B3-%D8%B3%D9%88%D9%BE%D8%B1-%D9%BE%D8%A7%DB%8C%D8%A7-10w40-%DA%86%D9%87%D8%A7%D8%B1-%D9%84%D9%8A%D8%AA%D8%B1%D9%8A.jpg" />
-                        <div className="item-minicart">
-                            <span className="item-minicart-name">بهران اتوماتیک cvt</span>
-                            <small>کد محصول: ASMQT-EA</small>
-                            <div className="cartPrice">
-                                <span className="cartQty">تعداد :2</span>
-                                <span className="base-price">$14.79</span>
-                            </div>
-                        </div>
-                    </div>
-                    </td>
-                    <td className="mobileHide">250.000 تومان</td>
-                    <td className="mobileHide">2</td>
-                    <td className="mobileHide">500.000 تومان</td>
-                    <td><i className="icon-size fas fa-close"></i></td>
-                </tr>
+                        </td>
+                        <td className="mobileHide">{normalPrice(cartItem.subtotal)}<sub className="base-Toman">تومان</sub></td>
+                        <td className="mobileHide">{cartItem.quantity}</td>
+                        <td className="mobileHide">{normalPrice(cartItem.total)}<sub className="base-Toman">تومان</sub></td>
+                        <td><i className="icon-size fas fa-close"></i></td>
+                    </tr>
+                        ))}
+                </tbody>
                 </table>
         </div>
         <div className="shopCartBtn">

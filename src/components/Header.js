@@ -58,6 +58,17 @@ function Header(props){
 					</div>
 				</div>
 			</div>
+			<div className="cart hideMenu">
+				<div className="mainHolder">
+					<i className="icon-size circleIcon fas fa-book"></i>
+					<span className="cart-heading">کاتالوگ</span>
+				</div>
+			</div>
+			<div className="cart showMobile">
+				<div className="mainHolder">
+					<i className="icon-size circleIcon fas fa-address"></i>
+				</div>
+			</div>
 			<div className="account">
 				<div className="mainHolder" onMouseOver={handleLoginHover}
 						onMouseOut={handleLoginOut}>
@@ -75,7 +86,7 @@ function Header(props){
 					<i className="icon-size circleIcon fas fa-shopping-cart"></i>
 					<span className="cart-heading">سبد خرید</span>
 					<div className="megaMenuHeader megaMenuSingle" style={{visibility:cartMenu}}>
-						<CartMenu cart={props.cart}/>
+						{props.cart&&<CartMenu cart={props.cart}/>}
 					</div>
 				</div>
 			</div>
@@ -93,23 +104,24 @@ function Header(props){
 					</li>
 					<li className="menuItem" onMouseOver={handleLubMenuHover}
 						onMouseOut={handleLubMenuOut}>روان کننده موتور
-						<i className="fas fa-chevron-down"></i>
-						<div className="MegaMenuLable" style={{display:"none"/*lubMenu*/}}>
+						{/*<i className="fas fa-chevron-down"></i>
+						<div className="MegaMenuLable" style={{display:lubMenu}}>
 							<MegaMenuLubricant />
-						</div>
+						</div>*/}
 						</li>
-					<li className="menuItem" onMouseOver={handleAccMenuHover}
+					<li className="menuItem hideMenu" onMouseOver={handleAccMenuHover}
 						onMouseOut={handleAccMenuOut}>محصولات جانبی
-						<i className="fas fa-chevron-down"></i>
-						<div className="MegaMenuLable" style={{display:"none"/*accMenu*/}}>
+						{/*<i className="fas fa-chevron-down"></i>
+						<div className="MegaMenuLable" style={{display:accMenu}}>
 							<MegaMenuAccessory />
-						</div>
+					</div>*/}
 						</li>
 					<li className="menuItem hideMenu">راهنمای روغن</li>
 				</ul>
 			</div>
 			<div className="contact">
-			
+				<a href=""><i className="icon-size fas fa-address"></i>
+				<span>نزدیک ترین فروشگاه شریفی</span></a>
 			</div>
 		</div>
 	</header>

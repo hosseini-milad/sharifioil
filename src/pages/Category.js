@@ -6,9 +6,12 @@ import FilterPart from "../modules/CategoryPage/filterPart"
 import ProductList from "../modules/CategoryPage/ProductList"
 import SideBar from "../modules/CategoryPage/SideBar"
 import MetaTags from 'react-meta-tags';
+import { findAddress } from "../env"
 
 function Category(){
+    const catPath= findAddress(document.location.pathname)
     const productList = FetchGraph(PRODUCT_LIST_QUERY);
+    console.log(productList)
     return(<>
         <MetaTags>
             <title>روغن شریفی|لیست محصولات</title>
@@ -22,11 +25,11 @@ function Category(){
                 <a href="#reviews" aria-label="View customer reviews">
                     <div className="p-review-stars">
                         <span className="p-review-stars__star-icon">
-                                <i className="fas fa-star"></i>
-                                <i className="fas fa-star"></i>
-                                <i className="fas fa-star"></i>
-                                <i className="fas fa-star"></i>
-                                <i className="fas fa-star"></i>
+                            <i className="fas fa-star"></i>
+                            <i className="fas fa-star"></i>
+                            <i className="fas fa-star"></i>
+                            <i className="fas fa-star"></i>
+                            <i className="fas fa-star"></i>
                         </span>
                         <span>
                         4.9 نمره <span className="show-for-medium">بر اساس</span> <span className="hide-for-medium">(</span>1,135 نظرات<span className="hide-for-medium">)</span>

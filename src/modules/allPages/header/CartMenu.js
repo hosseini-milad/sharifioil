@@ -1,7 +1,8 @@
 import FetchGraph from "../../../components/fetchGraph"
 import { TOTAL_CART } from "../../../components/Query"
+import { normalPrice } from "../../../env";
 
-function CartMenu(props){
+function CartMenu(props){ 
     const cart = props.cart;
     return(
         <div className="minicartData">
@@ -10,39 +11,30 @@ function CartMenu(props){
             در سبد خرید شماست</div>
 
 <div className="mini-cart-table">
-<div className="productListHover">
+    {cart.cart.contents.nodes.map(cartItem=>(
+        <div className="productListHover" key={cartItem.key}>
         <div className="inner-wrap">
-                <img alt="Synthetic 0W20 SS Motor Oil" title="Synthetic 0W20 SS Motor Oil" 
-                src="https://roghankala.com/28-large_default/%D8%B1%D9%88%D8%BA%D9%86-%D9%85%D9%88%D8%AA%D9%88%D8%B1-%D9%BE%D8%A7%D8%B1%D8%B3-%D8%B3%D9%88%D9%BE%D8%B1-%D9%BE%D8%A7%DB%8C%D8%A7-10w40-%DA%86%D9%87%D8%A7%D8%B1-%D9%84%D9%8A%D8%AA%D8%B1%D9%8A.jpg" />
+                <img alt={cartItem.product.node.name} title={cartItem.product.node.name} 
+                src={cartItem.product.node.image.sourceUrl} 
+                srcSet={cartItem.product.node.image.srcSet} 
+                sizes={cartItem.product.node.image.sizes} />
 
             <div className="item-minicart">
                 <span className="item-minicart-name">
-                بهران اتوماتیک cvt</span>
-                <small>کد محصول: ASMQT-EA</small>
-                <div className="cartPrice"><span className="cartQty">تعداد :2</span>
-                <span className="base-price">$14.79</span></div>
+                {cartItem.product.node.name}</span>
+                <small>کد محصول: {cartItem.product.node.sku}</small>
+                <div className="cartPrice"><span className="cartQty">تعداد :{cartItem.quantity}</span>
+                <span className="base-price">{normalPrice(cartItem.total)}<sub className="base-Toman">تومان</sub></span></div>
             </div>
             <i className="icon-size fas fa-close"></i>
         </div>
     </div>
-    <div className="productListHover">
-        <div className="inner-wrap">
-                <img alt="Synthetic 0W20 SS Motor Oil" title="Synthetic 0W20 SS Motor Oil" 
-                src="https://roghankala.com/28-large_default/%D8%B1%D9%88%D8%BA%D9%86-%D9%85%D9%88%D8%AA%D9%88%D8%B1-%D9%BE%D8%A7%D8%B1%D8%B3-%D8%B3%D9%88%D9%BE%D8%B1-%D9%BE%D8%A7%DB%8C%D8%A7-10w40-%DA%86%D9%87%D8%A7%D8%B1-%D9%84%D9%8A%D8%AA%D8%B1%D9%8A.jpg" />
-
-            <div className="item-minicart">
-                <span className="item-minicart-name">
-                بهران اتوماتیک cvt</span>
-                <small>کد محصول: ASMQT-EA</small>
-                <div className="cartPrice"><span className="cartQty">تعداد :2</span>
-                <span className="base-price">$14.79</span></div>
-            </div>
-            <i className="icon-size fas fa-close"></i>
-        </div>
-    </div>
+    ))}
+    
 </div>
 <div className="cartpopup">
-        جمع سبد خرید:<b> 250.000 تومان</b>
+        جمع سبد خرید:<b> {normalPrice(cart.cart.total)}
+                <sub className="base-Toman">تومان</sub></b>
         <a href="/cart" className="modal-sub-btn">
             مشاهده سبد خرید</a>
     </div>

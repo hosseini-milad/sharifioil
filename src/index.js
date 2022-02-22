@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import client from "./components/ApolloClient";
 import { ApolloProvider } from "@apollo/client";
+import { AppProvider } from "./components/AppContext";
 import './css/App.css';import './css/fonts.css';
 import {
   BrowserRouter as Router,
@@ -21,6 +22,7 @@ import Login from './pages/Login';
 
 ReactDOM.render(
   <React.StrictMode>
+    <AppProvider>
     <ApolloProvider client={client}>
       <Layout>
        <Router>
@@ -36,6 +38,7 @@ ReactDOM.render(
        </Router>
       </Layout>
     </ApolloProvider>
+    </AppProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

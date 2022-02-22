@@ -3,7 +3,12 @@ import MetaTags from 'react-meta-tags';
 import BreadCrumb from "../modules/allPages/BreadCrumb";
 import CartMainPart from "../modules/CartPage/cartMainPart";
 import CartSidePart from "../modules/CartPage/cartSidePart";
+
+import FetchGraph from "../components/fetchGraph"
+import { TOTAL_CART } from "../components/Query"
+
 function Cart(){
+    const cart= FetchGraph(TOTAL_CART);
     return(
     <main>
         <MetaTags>
@@ -17,10 +22,10 @@ function Cart(){
           <div className="items-total"> مجموع اقلام سبد: 2</div>
           <div className="cartHandler">
                 <div className="cartMain">
-                    <CartMainPart />
+                    <CartMainPart cart={cart}/>
                 </div>
                 <div className="cartSide">
-                    <CartSidePart />
+                    <CartSidePart cart={cart}/>
                 </div>
           </div>
     </main>)

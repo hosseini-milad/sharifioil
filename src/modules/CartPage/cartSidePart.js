@@ -1,4 +1,7 @@
-function CartSidePart(){
+import { normalPrice } from "../../env";
+
+function CartSidePart(props){
+    const cart = props.cart;
     return(
         <div className="cartSideHandler">
             <div className="pt-3 float-md-left col-md-12 pl-0 pr-0">
@@ -12,12 +15,12 @@ function CartSidePart(){
             <div className="cartTotals">
             <small>
                 <p className="total-wrap">
-                    جمع ارقام:<span>250.000 تومان</span>
+                    جمع ارقام:<span>{cart&&normalPrice(cart.cart.total)}<sub className="base-Toman">تومان</sub></span>
                 </p>
             </small>
 
             <h5 className="total-wrap totalPrice">
-                جمع کل<span> 280.000 تومان</span>
+                جمع کل<span> {cart&&normalPrice(cart.cart.total)}<sub className="base-Toman">تومان</sub></span>
             </h5>
             <a className="modal-sub-btn cartCheckOut">نهایی کردن سفارش</a>
 

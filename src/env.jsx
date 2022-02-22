@@ -17,3 +17,13 @@ export function normalPrice(priceText){
       (priceText.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",").replace( /^\D+/g, ''))
     )
 }
+export function findAddress(url){
+  var cId = '';
+  try{cId = (url.split('/')[2]==undefined? 0: (url.match(/\d+/)[0]));}catch{}
+  console.log(cId)
+
+
+  //const splitUrl = url.Split('/');
+  //if(splitUrl.pop()==='')console.log(splitUrl.pop());
+  //var url = 
+}

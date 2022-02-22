@@ -26,14 +26,18 @@ function ProductSingle(props){
                         <i className="fas fa-star"></i>
                         <sub>(19 دیدگاه)</sub>
                     </div>
-                    <small><i className="fas fa-price"></i> قیمت: </small>
-                    {product.price&&<strong>{normalPrice(product.price)} تومان</strong>}
-                    {!product.price&&<strong>تماس بگیرید</strong>}
-                    <div className="youSave">
-                        <small>قیمت عمده: 200.000 تومان</small>
-                        <span> تخفیف: <b>50.000</b> تومان</span>
-                        <a href="" style={{textAlign: "left"}}><small>شرایط تخفیف</small></a>
+                    <div className="mainPrice">
+                        <div className="offPriceHolder">
+                        <small>250000</small>
+                        <b>10%</b></div>
+                        {product.price&&<strong>{normalPrice(product.price)} <sub>تومان</sub></strong>}
+                        {!product.price&&<strong>تماس بگیرید</strong>}
+                        
                     </div>
+                    {/*<div className="youSave">
+                        <span> تخفیف: <b>50.000</b> تومان</span>
+                        <a href="" className="saveButton"><small>شرایط تخفیف</small></a>
+    </div>*/}
                 </div>
                 <div className="offerButton" 
                     style={{display:showMobileIcon||siteWidth>700?"block":"none"}}>

@@ -8,13 +8,12 @@ function Layout(props){
     
     const cart = FetchGraph(TOTAL_CART);
     
-    console.log(cart)
     return(
-        <AppProvider>
-            {cart&&<Header cart={cart}/>}
+        <>
+            <Header cart={cart}/>
             {props.children}
             <Footer />
-        </AppProvider>
+        </>
     )
 }
 export default Layout

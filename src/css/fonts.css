@@ -42,6 +42,12 @@
 .fa-close::before {
     content: "\f057";
 }
+.fa-address::before {
+    content: "\f3c5";
+}
+.fa-book::before {
+    content: "\f02d";
+}
 .fa-shopping-cart::before {
     content: "\f07a";
 }

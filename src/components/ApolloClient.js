@@ -11,7 +11,7 @@ export const middleware = new ApolloLink( ( operation, forward ) => {
 	/**
 	 * If session data exist in local storage, set value as session header.
 	 */
-	const session = /*( process ) ?*/  localStorage.getItem( "woo-session" ) //: null;
+	const session = /*( process.browser ) ? */localStorage.getItem( "woo-session" ) //: null;
 
 	if ( session ) {
 		operation.setContext( ( { headers = {} } ) => ( {
@@ -34,7 +34,7 @@ export const afterware = new ApolloLink( ( operation, forward ) => {
 
 	return forward( operation ).map( response => {
 
-		/*if ( !process ) {
+		/*if ( !process.browser ) {
 			return response;
 		}*/
 
@@ -63,7 +63,7 @@ export const afterware = new ApolloLink( ( operation, forward ) => {
 		return response;
 
 	} );
-} );
+} ); 
 // Apollo GraphQL client.
 const client = new ApolloClient({
 	link: middleware.concat( afterware.concat( createHttpLink({
