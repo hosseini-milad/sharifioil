@@ -1,6 +1,7 @@
 import FetchGraph from "../../../components/fetchGraph"
 import { PRODUCT_TAG_QUERY } from "../../../components/Query"
 import {normalPrice} from '../../../env'
+import ProductSingle from '../productSingle'
 
 function SearchPList(props){
     const TagProduct = FetchGraph(PRODUCT_TAG_QUERY);
@@ -13,11 +14,7 @@ function SearchPList(props){
             </ul>
             <ul className="oilPart">
                 {TagProduct&&TagProduct.products.nodes.map((product,i)=>(
-                    <li key={i}>
-                        <img src={product.image.sourceUrl} />
-                        <h4>{product.name}</h4>
-                        <strong>{normalPrice(product.price)+" تومان "}</strong>
-                    </li>
+                    <ProductSingle product = {product} key={i}/>
                 ))}
                 
                 <div className="moreProductSearch"><a href="">...</a></div>

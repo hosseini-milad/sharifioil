@@ -1,10 +1,12 @@
 import { useState } from 'react'
+import FetchGraph from '../../components/fetchGraph';
+import { TOTAL_CART } from '../../components/Query';
 import {normalPrice} from '../../env'
 import QuickView from '../../modules/CategoryPage/QuickView'
 
     const siteWidth = window.innerWidth;
 function ProductSingle(props){
-    const product = props.product
+    const product = props.product 
     const [showMobileIcon,setMobileIcon] = useState(0);
     return(
         <div className="offer" key={product.databaseId} 
@@ -17,7 +19,7 @@ function ProductSingle(props){
             <div className="offerText">
                 <div className="offerTitle">
                     <a href={"/product/"+product.sku}><h4>{product.name}</h4></a>
-                    <small> کد محصول: {product.sku}</small>
+                    <small> <i>کد محصول:</i> {product.sku}</small>
                     <div className="offerShare">
                         <i className="fas fa-star"></i>
                         <i className="fas fa-star"></i>
@@ -41,7 +43,7 @@ function ProductSingle(props){
                 </div>
                 <div className="offerButton" 
                     style={{display:showMobileIcon||siteWidth>700?"block":"none"}}>
-                    <QuickView product={product} />
+                    <QuickView product={product} cart={props.cart}/>
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@ import { PRODUCT_LIST_QUERY } from "../../components/Query"
 import FetchApi from '../../components/fetchGraph'
 
 function MegaMenuAccessory(){
-    const popLable = FetchApi(PRODUCT_LIST_QUERY)
+    const popLable = FetchApi(PRODUCT_LIST_QUERY())
     return(
     <div className="menuMegaLable">
         <div className="menuMain">

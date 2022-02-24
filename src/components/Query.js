@@ -4,6 +4,7 @@ const PRODUCT_NODE=`nodes {
   databaseId
   name
   sku
+  shortDescription
   productCategories(first: 1) {
     nodes {
       databaseId
@@ -23,11 +24,12 @@ const PRODUCT_NODE=`nodes {
       grade
     }
 }`
-export const PRODUCT_LIST_QUERY = gql`query {
-    products(first: 100, where:{orderby: {field: DATE, order: ASC}}) {
+export const PRODUCT_LIST_QUERY=(cat)=>{
+  return( gql`query {
+    products(first: 12, where:{category:"${cat}"}) {
         ${PRODUCT_NODE}
     }
-}`
+}`)}
 export const PRODUCT_NOT_LABEL_QUERY = gql`query {
     products(first: 4) {
       ${PRODUCT_NODE}
@@ -50,6 +52,39 @@ export const SLIDER_QUERY = gql`query MyQuery {
 }
 
 `
+
+export const CATEGORY_DESC=(cat)=>{
+  return(gql`query MyQuery {
+    catdescs(first: 1, where: {name: "${cat}"}) {
+      nodes {
+          title
+          content
+          databaseId
+          featuredImage {
+            node {
+              sourceUrl
+              srcSet
+              sizes
+            }
+          }
+      }
+    }
+  } `)
+}
+
+export const USER_QUERY= gql`
+query userQuery {
+  users(first: 10) {
+    nodes {
+      email
+      firstName
+      lastName
+      username
+      nicename
+    }
+  }
+}
+  `
 
 export const PRODUCT_QUERY=(sku)=>{
     return(gql`query {
@@ -154,6 +189,7 @@ export const ADD_TO_CART = (productId)=>{
 export const TOTAL_CART = gql`query MyQuery {
   cart {
     contents {
+      itemCount
       nodes {
         key
         quantity

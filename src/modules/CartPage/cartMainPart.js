@@ -22,7 +22,8 @@ function CartMainPart(props){
                                     srcSet={cartItem.product.node.image.srcSet} 
                                     sizes={cartItem.product.node.image.sizes} />
                                 <div className="item-minicart">
-                                    <span className="item-minicart-name">{cartItem.product.node.name}</span>
+                                    <a href={"/product/"+cartItem.product.node.sku} 
+                                    className="item-minicart-name">{cartItem.product.node.name}</a>
                                     <small>کد محصول: {cartItem.product.node.sku}</small>
                                     <div className="cartPrice">
                                         <span className="cartQty">تعداد :{cartItem.quantity}</span>
@@ -45,7 +46,7 @@ function CartMainPart(props){
                 ادامه خرید</a>
             <a href="/cart/removeAll" className="link_amsoil-large">
                 خالی کردن سبد خرید</a>
-            <a className="modal-sub-btn cartCheckOut">نهایی کردن سفارش</a>
+            <a href="/checkout" className="modal-sub-btn cartCheckOut">نهایی کردن سفارش</a>
        </div>
         </>
     )

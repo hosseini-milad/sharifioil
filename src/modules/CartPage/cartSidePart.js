@@ -22,7 +22,7 @@ function CartSidePart(props){
             <h5 className="total-wrap totalPrice">
                 جمع کل<span> {cart&&normalPrice(cart.cart.total)}<sub className="base-Toman">تومان</sub></span>
             </h5>
-            <a className="modal-sub-btn cartCheckOut">نهایی کردن سفارش</a>
+            <a href="/checkout" className="modal-sub-btn">نهایی کردن سفارش</a>
 
 
 		 </div>

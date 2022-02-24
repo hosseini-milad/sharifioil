@@ -1,18 +1,24 @@
 import { useMutation } from "@apollo/client";
-import { useState } from "react";
+import { useState ,useContext} from "react";
 import CounterInput from "react-counter-input";
-import { ADD_TO_CART } from "../../components/Query";
+import { ADD_TO_CART ,TOTAL_CART} from "../../components/Query";
 import { normalPrice } from "../../env";
+import {AppContext} from "../../components/AppContext";
+import FetchGraph from "../../components/fetchGraph";
 
 function ProductMainDetail(props){
     const product = props.product;
-    console.log(product.databaseId)
-    const [cartAdd,setCartAdd] = useState('');
+    const [cart, setCart] = useContext(AppContext);
+    const updatedCart = props.cart;
+    //console.log(updatedCart)
+   // const [cartAdd,setCartAdd] = useState('');
     const [addToCart] = useMutation(ADD_TO_CART(product.databaseId), {
         
         onCompleted: (data) => {
-          console.log('item added')
-          setCartAdd(data);
+          console.log('item added',data);
+          //setCartAdd(data);
+          localStorage.setItem('oil-cart', JSON.stringify(updatedCart));
+          setCart(updatedCart)
           //cartAdded(1)
           //history.push("/cart")
           //window.open("/cart").focus(); 
@@ -26,7 +32,7 @@ function ProductMainDetail(props){
     const handleAddToCart=(productId)=>{
         const result = addToCart();
     }
-    console.log(cartAdd)
+    //console.log(cartAdd)
     return(
         <div className="modal-content">
         <div className="modal-product">
@@ -41,12 +47,20 @@ function ProductMainDetail(props){
         </div>
         <div className="pop-xtra-content">
         <div className="selectPart">
-                <strong className="pricePop">{normalPrice(product.price)+ " تومان "}</strong>
-                <div className="youSave">
-                    <small>قیمت عمده: 200.000 تومان</small>
-                    <span> تخفیف: <b>50.000</b> تومان</span>
-                    <a href="" style={{textAlign: "left"}}><small>شرایط تخفیف</small></a>
-                </div>
+                <div className="offerText">
+                <div className="offerTitle">
+                    <div className="mainPrice">
+                        <div className="offPriceHolder">
+                        <small>250000</small>
+                        <b>10%</b></div>
+                        {product.price&&<strong >
+                            {normalPrice(product.price)} <sub>تومان</sub></strong>}
+                        {!product.price&&<strong>
+                            تماس بگیرید</strong>}
+                        
+                    </div>
+                    </div>
+                    </div>
                 <div className="mobileFlex"><label>اندازه بسته:</label>
                 <select className="filterSort" >
                     <option>نیم لیتری</option>

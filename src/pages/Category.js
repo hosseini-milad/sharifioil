@@ -1,6 +1,6 @@
 import { useState } from "react"
 import FetchGraph from "../components/fetchGraph"
-import { PRODUCT_LIST_QUERY } from "../components/Query"
+import { PRODUCT_LIST_QUERY ,CATEGORY_DESC} from "../components/Query"
 import BreadCrumb from "../modules/allPages/BreadCrumb"
 import FilterPart from "../modules/CategoryPage/filterPart"
 import ProductList from "../modules/CategoryPage/ProductList"
@@ -10,8 +10,9 @@ import { findAddress } from "../env"
 
 function Category(){
     const catPath= findAddress(document.location.pathname)
-    const productList = FetchGraph(PRODUCT_LIST_QUERY);
-    console.log(productList)
+    const productList = FetchGraph(PRODUCT_LIST_QUERY(catPath));
+    const catDesc = FetchGraph(CATEGORY_DESC(catPath))
+    console.log(catDesc)
     return(<>
         <MetaTags>
             <title>روغن شریفی|لیست محصولات</title>
@@ -19,28 +20,16 @@ function Category(){
             <meta property="og:title" content="شریفی روغن" />
             <meta property="og:image" content="path/to/image.jpg" />
           </MetaTags>
-        <div className="landingCat">
+          {catDesc&&<div className="landingCat" style={{backgroundImage:`url("${catDesc.catdescs.nodes[0].featuredImage.node.sourceUrl}")`}}>
             <div className="landingText">
-                <h1> روغن موتور </h1>
+                <h1> {catDesc.catdescs.nodes[0].title} </h1>
                 <a href="#reviews" aria-label="View customer reviews">
-                    <div className="p-review-stars">
-                        <span className="p-review-stars__star-icon">
-                            <i className="fas fa-star"></i>
-                            <i className="fas fa-star"></i>
-                            <i className="fas fa-star"></i>
-                            <i className="fas fa-star"></i>
-                            <i className="fas fa-star"></i>
-                        </span>
-                        <span>
-                        4.9 نمره <span className="show-for-medium">بر اساس</span> <span className="hide-for-medium">(</span>1,135 نظرات<span className="hide-for-medium">)</span>
-                        </span>
-
-                    </div>
+                    
                 </a>
-                <sub> روغن موتور فروشگاه بر اساس اندازه پروژه شما مرتب شده‌اند.</sub>
-                <small>از لغزنده ها و فیلترهای زیر برای یافتن اندازه روغن موتور مناسب برای برنامه خود استفاده کنید.</small>
+                <p dangerouslySetInnerHTML={{__html: catDesc.catdescs.nodes[0].content}} ></p>
+                
             </div>
-        </div>
+        </div>}
         <main>
             <BreadCrumb pName=" محصولات / روغن موتور  "/>
             <FilterPart />

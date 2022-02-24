@@ -1,20 +1,22 @@
 import { PRODUCT_LIST_QUERY } from "../../components/Query"
 import FetchApi from '../../components/fetchGraph'
+import {normalPrice} from '../../env'
 
 function MegaMenuOil(){
-    const popLable = FetchApi(PRODUCT_LIST_QUERY)
+    const popLable = FetchApi(PRODUCT_LIST_QUERY("motor-oil")) 
+    
     return(
     <div className="menuMegaLable">
         <div className="menuMain">
             <div className="megaItems">
-                <a className="megaItem" href="/category/labels">
+                <a className="megaItem" href="/category/motor-oil">
                     <div className="megaItemText"><strong>نوع وسیله نقلیه</strong>
                     <small>فیلتر بر اساس نوع ماشین</small></div>
                     <img src="https://carinzo.com/storage/2021/05/%D8%B1%D9%88%D8%BA%D9%86-%D9%85%D9%88%D8%AA%D9%88%D8%B1-%D8%A2%D8%B1%DB%8C%D8%A7-%D8%A7%D8%B3-%D8%A7%D9%85-%D9%81%D8%B1%D9%88%D8%B4%DA%AF%D8%A7%D9%87-%D8%A7%DB%8C%D9%86%D8%AA%D8%B1%D9%86%D8%AA%DB%8C-%DA%A9%D8%A7%D8%B1%DB%8C%D9%86%D8%B2%D9%88-600x600.jpg?v=1628580273" />
                 </a>
                 <div className="megaItem">
                     <div className="megaItemText"><strong>نوع روغن</strong>
-                    <small>فیلتر بر اساس جنس</small></div>
+                    <small>فیلتر بر اساس خودرو</small></div>
                     <img src="http://oil.deleves.com/backend/wp-content/uploads/2022/01/روغن-موتور-پارس-پایا-20w50-چهار-لیتری.jpg" />
                 </div>
                 <div className="megaItem">
@@ -41,14 +43,14 @@ function MegaMenuOil(){
                 <div className="menuSideBarItem" key={i}>
                 <img src={product.image.sourceUrl}/>
                 <div className="mySideBarItemText">
-                    <a className="blueA">{product.name}</a>
+                    <a href={"/product/"+product.sku} className="blueA">{product.name}</a>
                     <small>{product.productCategories.nodes[0].name}</small>
-                    <small>روغن 2 لیتری</small>
+                    <small>{normalPrice(product.price)}<sub> تومان </sub></small>
                 </div>
             </div>
             ))}
             
-            <a className="blueA">مشاهده همه روغن ها</a>
+            <a href="/category/motor-oil" className="blueA">مشاهده همه روغن موتورها</a>
         </div>
     </div>
         )

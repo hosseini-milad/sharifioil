@@ -19,8 +19,8 @@ export function normalPrice(priceText){
 }
 export function findAddress(url){
   var cId = '';
-  try{cId = (url.split('/')[2]==undefined? 0: (url.match(/\d+/)[0]));}catch{}
-  console.log(cId)
+  try{cId = (url.split('/')[2])}catch{}
+  return(cId);
 
 
   //const splitUrl = url.Split('/');

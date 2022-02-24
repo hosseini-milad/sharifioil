@@ -5,7 +5,6 @@ import FetchGraph from "../../components/fetchGraph";
 import { SLIDER_QUERY } from "../../components/Query";
 function Slider(){
 	const sliders = FetchGraph(SLIDER_QUERY)
-	console.log(sliders)
 	const linkNow=(e)=>{
 		console.log(e)
 	}
@@ -16,7 +15,12 @@ function Slider(){
 			}
 		))
 	  ];
-    return(
+    return(<>
+	<div className="topBanner">
+		<span>گارانتی روانکاران، به هر دلیلی از کیفیت راضی نبودید
+			 روانکاران همراه شماست،
+			 <a href="#"> بیشتر بدانید.</a></span>
+	</div>
         <section className="banner">
 		  {sliders&&<ImageGallery 
 			showFullscreenButton={false} 
@@ -32,6 +36,7 @@ function Slider(){
 			}
 			/>}
 		</section>
+		</>
     )
 }
 export default Slider

@@ -31,6 +31,7 @@ body{
 }
 a{
 	text-decoration: none;
+	color: inherit;
 }
 h1,h2,h3,h4{
 	color:var(--title-color);
@@ -77,7 +78,29 @@ label{
 	margin: auto 10px;
 }
 /*Fonts*/
-
+.topTop{
+	background-color: #f6f6f6;
+	height: 40px;
+	display:flex;
+	justify-content: space-between;
+}
+.topTop span{
+	font-size: 14px;
+	line-height: 18px;
+	color: #000000;
+	padding: .5rem 1rem;
+}
+.topTop a{
+	color: #093B66;
+	font-weight: 700;
+	font-size: 14px;
+}
+.topSocial i{
+	font-size: 25px;
+color: var(--main-color);
+margin: 0 10px;
+cursor: pointer;
+}
 .logo{
 	width:20%;
 	margin: auto 0;
@@ -201,7 +224,7 @@ line-height: 1.8;
 	cursor: pointer;
 }
 .menuSideBarItem img{
-	width:50px;
+	width:70px;
 	height: 70px;
 	object-fit: contain;
 }
@@ -471,18 +494,25 @@ padding-left: 5px;
 	border-radius: 5px;
 }
 .oilPart img{
-	width:80px;
-	margin:auto;
-	height: 100px;
-object-fit: cover;
+	width:80px !important;
+	margin:auto 0 0 10px;
+	height: 100px !important;
+object-fit: contain !important;
+}
+.oilPart .offerShare,.oilPart .offPriceHolder,.oilPart i{
+	display:none;
+}
+.oilPart .offer{
+	display:flex;
 }
 .moreProductSearch{
 	width: 50px;
-	height: 170px;
+	height: 130px;
 	box-shadow: var(--box-shadow-Menu);
 	border-radius: 5px;
 	display: grid;
 	background-color: #fff;
+	margin: 10px;
 }
 .moreProductSearch a{
 	padding: 70px 5px;
@@ -533,6 +563,20 @@ object-fit: cover;
 
 
 /* Banner  */
+.topBanner{
+	background-color: #e0e0e0;
+	font-weight: bold;
+	padding: 10px;
+}
+.topBanner span{
+	text-align: center;
+	display: block;
+	color: #212529;
+}
+.topBanner a{
+	text-decoration: underline;
+	color: #007bff;
+}
 .banner{
 	background-position-x: 70%;
 	background: #D3D9DD;
@@ -1116,6 +1160,7 @@ justify-content: center;
 	font-size:15px;
 	min-width: 145px;
 	border: 1px solid silver;
+	background-color: #fff;
 }
 .offer:hover{
 	box-shadow: var(--box-shadow-Menu);
@@ -1136,8 +1181,8 @@ justify-content: center;
 .offerImg img{
 	width: 100%;
 	border-radius: 20px;
-	height: 200px;
-object-fit: cover;
+	height: 150px;
+object-fit: contain;
 }
 .offerText{
 	display: grid;
@@ -1181,6 +1226,7 @@ object-fit: cover;
 	display: flex;
 	width: 100%;
 	justify-content: space-between;
+	align-items: flex-start;
 }
 .offerText h4{
 	overflow: hidden;
@@ -1443,11 +1489,11 @@ footer{
 .productMainHolder{
 	display: flex;
 	margin: 20px auto;
-	align-items: start;
+	align-items: flex-start;
 }
 .productSData{
 	display: grid;
-	width:35%;
+	width:30%;
 }
 .productImg{
 	display: flex;
@@ -1460,12 +1506,12 @@ footer{
 .mainImg img{
 	width: 100%;
 	height: 100%;
-	object-fit: cover;
+	object-fit: contain;
 }
 .galleryImg img{
 	width: 50px;
 	height: 50px;
-	object-fit: cover;
+	object-fit: contain;
 	border-color: var(--font-dark);
 	box-shadow: 0 0 4px var(--font-dark);
 	margin: auto auto 20px;
@@ -1507,7 +1553,7 @@ footer{
 }
 .productMainDetail{
 	width:65%;
-	background-color: #eee;
+	/*background-color: #eee;*/
 	border-radius: 0 4px 4px 4px;
 	padding: 1.5rem;
 }
@@ -1528,6 +1574,9 @@ footer{
 	font-size: .8rem;
 	font-weight: 700;
 	margin: auto 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 .mainDetail a:hover , .blueA:hover{
 	color: #f08a24;
@@ -1610,20 +1659,35 @@ footer{
 
 .productDetailSection{
 	box-shadow: inset 0 1px 0 rgba(0,0,0,.2);
-	background-color: #eaeaea;
+	background-color: #f0f0f0;
 }
 .productPromises{
 	display: flex;
 	margin: auto 2%;
 }
 .productPromise{
-	width:30%;
-	margin: 20px 2%;
-	flex: 1 1 0px;
-	display: flex;
+	max-width:150px;
+	width:15%;
+	margin: 5px 2%;
 }
 .productPromiseText{
 	display: grid;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 24px;
+	text-align: center;
+	background: transparent;
+	padding: 0.5rem 0rem;
+	border-bottom: 3px solid transparent;
+	cursor: pointer
+}
+.productPromiseText:hover {
+	color: #00427A;
+	border-bottom: 3px solid var(--second-color);
+}
+.productPromiseActive{
+	color: #00427A;
+	border-bottom: 3px solid #00427A;
 }
 .promiseIcon{
 	font-size: 4rem;
@@ -1632,27 +1696,29 @@ footer{
 .cPanel{
 	position: relative;
 	border-radius: 4px;
-	display: block;
 	background: #fefefe;
 	border: none;
 	box-shadow: 0 1px 3px rgba(0,0,0,.2);
 	margin: 0;
 	padding: 1.5rem;
 	width: 88%;
+	display:flex;
 	margin: auto;
+	align-items: flex-start;
 }
 .cPanel ul{
-	list-style: none;
-	display: flex;
-	flex-wrap: wrap;
 }
-.cPanel li{
-	padding: 1rem 0;
-	border-bottom: 1px solid #ccc;
-	width: 50%;
+.cPanelImg{
+	margin: 10px;
+	width: 300px;
 }
-
-
+.cPanel a{
+	color: #007bff;
+}
+.cPanel a:hover{
+	color: #005BAA;
+	text-decoration: underline;
+}
 .mainSelectPop{
 	position: absolute;
 	top: -1px;
@@ -1677,21 +1743,20 @@ footer{
 
 /* 	Category	*/
 .landingCat{
-	background: #222 url("https://assets.uk.onlinelabels.com/images/dlp/banners/candle-labels-banner.jpg") 50%/cover no-repeat !important;
+	background: #222 50%/cover no-repeat;
 }
 .landingText{
-	max-width: 50%;
+	max-width: 35%;
 	color: #fefefe;
 	display: grid;
-	padding:60px 20px;
-	margin-right: 50%;
+	padding: 20px 20px 100px;
+	background: linear-gradient(90deg, rgba(2,0,36,0) 0%, rgba(0,0,0,.5) 50%);
 }
 .landingText h1{
 	display: block;
 font-size: 2.5rem;
 font-weight: 700;
-color: #fefefe;
-margin-bottom: .5rem;
+color: #FABD12;
 margin-right: 1rem;
 line-height: 1;
 }
@@ -1861,8 +1926,9 @@ margin: 30px auto;
   }
   .modal-product{
 	display: grid;
-	width:75%;
+	width:70%;
 	align-items: start;
+	margin-left: 20px;
   }
   .modal-product span{
 	  display:grid;
@@ -1927,6 +1993,9 @@ bottom: 10px;
   }
   .selectPart{
 	display: grid;
+  }
+  .selectPart strong{
+	  font-size:35px;
   }
   .selectPart select{
 	  width:100%;
@@ -2002,7 +2071,7 @@ line-height: 22px;
 .cartHandler{
 	display:flex;
 }
-.cartMain{
+.cartMainPart{
 	width: 75%;
 
 }
@@ -2101,6 +2170,7 @@ padding: 9px 20px;
 	background-color: #F0F0F0;
 	display: flex;
 	justify-content: space-evenly;
+	align-items: flex-start;
 }
 .topFooter strong{
 	margin: auto 0;
@@ -2108,14 +2178,21 @@ padding: 9px 20px;
 .topFooter a{
 	display: inline-block;
 	padding: 5px 15px;
-	margin: 5px 0;
+	margin: 5px 10px;
 	color: #000000;
 	background-color: #fff;
 	padding: 10px 35px;
 	border-radius: 3px;
 	border: #333 1px solid;
 	text-align: center;
+	min-width: 60px;
 }
+.btn100{
+	width: 95%;
+height: 100%;
+}
+
+
 .topFooter a:hover{
 	color: #ffffff;
 text-decoration: none;
@@ -2145,7 +2222,7 @@ border-color: #565656;
 	.megaMenuHeader {width:94%;display: grid;}
 	.megaSideBar {width: 95%;}
 	.menu ul {}
-	.menu li {white-space: nowrap;font-size: 13px;padding: 10px 7px;}
+	.menu li {white-space: nowrap;font-size: 14px;padding: 10px 7px;}
 	.MegaMenuLable {top: 41px;}
 	.offerText {padding-right: 8px;width: 80%;}
 	.vehiclePart {width: 100% !important; display: flex !important;}
@@ -2205,12 +2282,12 @@ border-color: #565656;
 	.productMainHolder {display: grid;}
 	.productSData {width: 100%;}
 	.productSpec{display:none;}
-	.productMainDetail {width: auto;margin-top: 30px;}
+	.productMainDetail {width: auto;}
 	.productPromises {display: grid;}
 	.productPromise {width: auto;}
 
 	.cartHandler {display: grid;}
-	.cartSide ,  .cartMain {width: 100%;}
+	.cartSide ,  .cartMainPart {width: 100%;}
 	.link_amsoil-large{display: none;}
 	.mobileHide{display: none;}
 	.offerTabs li {font-size: 13px;}
@@ -2236,9 +2313,14 @@ border-color: #565656;
 	.contact{display:none;}
 	.contact a {height: 22px;left: 5px;}
 	.contact i{margin-left: 0px;}
-	.mainHolder {padding: 5px;padding: 1rem 3%;}
-	.topHeader {justify-content: space-between;}
-	.mainPrice b {padding: 5px 10px;}
+	.mainHolder {padding: 5px;padding: 0rem 3%;}
+	.icons {width: 50%;}
+	.account {margin: auto 2%;}
+	.topHeader {justify-content: space-between;padding: 1rem 3%;}
 	.mainPrice {display: flex;}
 	.offPriceHolder {width: auto;}
+
+	.topTop span{display:none;	}
+	.selectPart strong {font-size: 25px;}
+	.cPanel{display:grid;}
 }

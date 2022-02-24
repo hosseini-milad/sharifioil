@@ -1,4 +1,4 @@
-import { PRODUCT_NOT_LABEL_QUERY, PRODUCT_OFFER_QUERY } from '../../components/Query'
+import { PRODUCT_NOT_LABEL_QUERY, PRODUCT_OFFER_QUERY, TOTAL_CART } from '../../components/Query'
 
 import FetchApi from '../../components/fetchGraph'
 import { useState } from 'react';
@@ -6,6 +6,7 @@ import ProductSingle from '../allPages/productSingle';
 function LastProducts(){
 	const notLable= FetchApi(PRODUCT_NOT_LABEL_QUERY)
 	const labels = FetchApi(PRODUCT_OFFER_QUERY);
+    const cart = FetchApi(TOTAL_CART);
 	const [tabIndex,setTabIndex] = useState(0); 
     return(
         <section className="offerPart">
@@ -18,7 +19,7 @@ function LastProducts(){
 			<div className="offerHolder" style={{display:tabIndex===0?"block":"none"}}>
 				<div className="offerList">
 					{notLable&&notLable.products.nodes.map((product,i)=>(
-					<ProductSingle product = {product} key={i}/>
+					<ProductSingle product = {product} key={i} cart={cart}/>
 				))}</div>
 				
 			</div>

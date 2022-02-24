@@ -7,7 +7,7 @@ function CartMenu(props){
     return(
         <div className="minicartData">
             <div className="item-cart-quantity">
-            <strong> 2 محصول </strong>
+            <strong> {cart&&cart.cart.contents.itemCount} محصول </strong>
             در سبد خرید شماست</div>
 
 <div className="mini-cart-table">
@@ -20,8 +20,8 @@ function CartMenu(props){
                 sizes={cartItem.product.node.image.sizes} />
 
             <div className="item-minicart">
-                <span className="item-minicart-name">
-                {cartItem.product.node.name}</span>
+                <a href={"/product/"+cartItem.product.node.sku} className="item-minicart-name">
+                {cartItem.product.node.name}</a>
                 <small>کد محصول: {cartItem.product.node.sku}</small>
                 <div className="cartPrice"><span className="cartQty">تعداد :{cartItem.quantity}</span>
                 <span className="base-price">{normalPrice(cartItem.total)}<sub className="base-Toman">تومان</sub></span></div>

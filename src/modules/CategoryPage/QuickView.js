@@ -12,7 +12,7 @@ function QuickView(props){
             {close => (
             <div className="modal">
                 <div className="modal-header"> <img src="https://sharifoilco.com/assets/imgs/header-logo.png"/> </div>
-                <ProductMainDetail product={productInfo} />
+                <ProductMainDetail product={productInfo} cart={props.cart}/>
                 
                 <a href={"/product/"+productInfo.sku} className="modal-product-detail" >جزئیات کامل محصول 
                 <i className="fas fa-angle-left"></i></a>

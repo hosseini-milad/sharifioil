@@ -19,9 +19,9 @@ function Cart(){
           </MetaTags>
           <BreadCrumb pName={"  سبد خرید"}/>
           <h1 className="shoppingCartHeading">سبد خرید</h1>
-          <div className="items-total"> مجموع اقلام سبد: 2</div>
+    <div className="items-total"> مجموع اقلام سبد: {cart&&cart.cart.contents.itemCount}</div>
           <div className="cartHandler">
-                <div className="cartMain">
+                <div className="cartMainPart">
                     <CartMainPart cart={cart}/>
                 </div>
                 <div className="cartSide">

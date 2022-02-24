@@ -33,6 +33,18 @@ function Header(props){
 
     return(
         <header>
+			<div className="topTop">
+				<span>باشگاه مشتریان روانکاران،  
+					 به شما تخفیف ویژه مشتریان
+					  و موارد دیگر را می دهد. <a href="/">همین حالا بپیوندید</a>  </span>
+				<div className="topContact">
+					<span>کمک نیاز دارید؟ با ما تماس بگیرید</span>
+				</div>
+				<div className="topSocial">
+				<i className="fab fa-instagram share"></i>
+				<i className="fab fa-whatsapp share"></i>
+				</div>
+			</div>
 		<div className="topHeader">
 			<a className="logo" href="/">
 				<img src="https://sharifoilco.com/assets/imgs/header-logo.png" alt="Sharifi Oil Logo" width="192px" height="54px"/>
@@ -103,14 +115,16 @@ function Header(props){
 						</div>
 					</li>
 					<li className="menuItem" onMouseOver={handleLubMenuHover}
-						onMouseOut={handleLubMenuOut}>روان کننده موتور
+						onMouseOut={handleLubMenuOut}>
+							<a href="/category/engine-lubricants">روان کننده موتور</a>
 						{/*<i className="fas fa-chevron-down"></i>
 						<div className="MegaMenuLable" style={{display:lubMenu}}>
 							<MegaMenuLubricant />
 						</div>*/}
 						</li>
 					<li className="menuItem hideMenu" onMouseOver={handleAccMenuHover}
-						onMouseOut={handleAccMenuOut}>محصولات جانبی
+						onMouseOut={handleAccMenuOut}>
+							<a href="/category/accessories">محصولات جانبی</a>
 						{/*<i className="fas fa-chevron-down"></i>
 						<div className="MegaMenuLable" style={{display:accMenu}}>
 							<MegaMenuAccessory />
