@@ -11,7 +11,7 @@ function Step1(props){
     const user = props.mobile;
     const price=normalPrice(cart.cart.total);
     const [userInfo,setUserInfo] = useState('');
-    const userUrl = "http://oil.deleves.com/backend/wp-json/wc/v1/customers"
+    const userUrl = "https://sharifoilco.com/backend/wp-json/wc/v1/customers"
     const userList=()=>{
         const requestOptions = {
             method: 'GET',

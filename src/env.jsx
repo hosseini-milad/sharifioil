@@ -1,14 +1,16 @@
-const siteUrl='http://oil.deleves.com';
+const siteUrl='https://sharifoilco.com';
 const env ={
-    siteUrl:'http://oil.deleves.com',
-    graphqlUrl:'http://oil.deleves.com/backend/api',
+    siteUrl:'https://sharifoilco.com',
+    graphqlUrl:'https://sharifoilco.com/backend/api',
     blogPostList:'https://sharifoilco.com/blog/wp-json/wp/v2/posts',
     blogMedia:'https://sharifoilco.com/blog/wp-json/wp/v2/media/',
     blogCategory:'https://sharifoilco.com/blog/wp-json/wp/v2/categories/',
     kaveNegarApi:'464D534974436D623637454B5547393169306E4D557A59637030574F4C37314930567354446F52424938773D',
     kaveNegarUrl:'https://api.kavenegar.com/v1/',
     loginUserUrl:siteUrl+'/backend/wp-json/jwt-auth/v1/token',
-    addUserUrl:siteUrl+'/backend/wp-json/wp/v2/users'
+    addUserUrl:siteUrl+'/backend/wp-json/wp/v2/users',
+    payApi:'https://sharifoilco.com/backend/wp-json/wp/v1/pay/order/'
+
 }
 export default env
 export function normalPrice(priceText){

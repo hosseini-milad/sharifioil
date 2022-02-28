@@ -161,6 +161,7 @@ mutation LoginUser {
     user {
       id
       name
+      databaseId
     }
   }
 }

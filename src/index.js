@@ -21,6 +21,7 @@ import Cart from './pages/Cart';
 import Login from './pages/Login';
 import Checkout from './pages/CheckOut';
 import Payment from './pages/Payment';
+import Fail from './pages/fail';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -38,6 +39,7 @@ ReactDOM.render(
           <Route path="/login" component={Login}/>
           <Route path="/checkout" component={Checkout}/>
           <Route path="/payment" component={Payment}/>
+          <Route path="/failed" component={Fail}/>
          </Switch>
        </Router>
       </Layout>

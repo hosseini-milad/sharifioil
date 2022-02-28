@@ -10,12 +10,14 @@ function Step2(props){
             headers: {  
             'Content-Type': 'application/json' },
         };
-        fetch(env.payApi+props.orderId+"/"+price*10, requestOptions)
+        fetch(env.payApi+props.orderId+"/"+price.replace('.','')*10, requestOptions)
         .then(response => response.json())
-        .then(data => setToken(data.token,data.url));
-
+        .then(data => setToken(data.token,data.url))
+        .catch(err => {
+            console.log(err);
+        })
     }
-    const [tokenUrl,setToken] = useState(/*()=>sendToPay()*/)
+    const [tokenUrl,setToken] = useState(()=>sendToPay())
     return(
         <div className="checkMain">
           

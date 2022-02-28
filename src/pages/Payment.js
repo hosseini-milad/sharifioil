@@ -26,7 +26,7 @@ function Payment(props){
         },
         onCompleted: (data) => {
             setOrderId(data.createOrder.orderId)
-            console.log("orderCreated");
+            console.log("orderCreated",data.createOrder.orderId);
             setOrderCreated(1);
             addItemsNow(data.createOrder.orderId)
         },
@@ -35,8 +35,8 @@ function Payment(props){
     }); 
     if(cart.cart&&created === 0){
         created = 1
-        //AddOrder();
-        console.log("orderRecieved")
+        AddOrder();
+        console.log("orderRecieved",orderId)
         //AddOrder();
     }
     const [addCart]=
@@ -44,18 +44,19 @@ function Payment(props){
             productIdTemp,
             productQTemp),{
             onCompleted: (data) => {
-                //setOrderId(data.createOrder.orderId)
-                console.log("orderItemsAdd")
+                console.log(data)
+                setOrderId(data.createOrder.orderId)
             },
             onError: (({ graphQLErrors}) => {
                 console.log("Error!",graphQLErrors[0].message)})
         }); 
     async function addItemsNow(){
         for(var index=0;index<cart.cart.contents.nodes.length;index++){
-            
+           
             productIdTemp = cart.cart.contents.nodes[index].product.node.databaseId;
             productQTemp = cart.cart.contents.nodes[index].quantity;
             if(productIdTemp===0)break;
+            console.log(productIdTemp,productQTemp)
             await addCart();
             itemCreated++;
         }
@@ -88,7 +89,6 @@ export default Payment;
 
 function setOrderQuery(userId,userName,price,userData){
     const userInfo=JSON.parse(userData)
-    
     price= price?price:0;
     const billing=`billing:{state:"${userInfo.state}", city:"${userInfo.city}", 
     address1:"${userInfo.address_1}", postcode:"${userInfo.postcode}", 
@@ -107,6 +107,7 @@ mutation MyMutation {
 return addOrderQuery
 }
 function addCartQuery(orderId,pId,pQ){
+    console.log(pId,pQ)
 const updateOrderQuery = gql`mutation MyUpdateCart {
     updateOrder(input: {orderId: ${orderId}, 
     lineItems:{ productId: ${pId}, quantity: ${pQ}}}) {
