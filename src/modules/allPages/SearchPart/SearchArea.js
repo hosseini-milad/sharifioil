@@ -12,12 +12,13 @@ function SearchArea(){
     const[oilKind , setOilKind] = useState(0);
     return(
         <>
-            {vehicleKind === 0&&<SearchPhase1 vehicleHandler={setVehicle}/>}
+            <SearchPhase1 vehicleHandler={setVehicle}/>
             {vehicleKind !== 0&&modelKind === 0&&
                 <SearchPhase2 vehicle={vehicleKind} modelHandler={setModel}
                               carHandler={setCarName}/>}
             {modelKind !== 0&&oilKind===0&&<SearchPhase3 vehicle={vehicleKind} 
-                        model={modelKind} kindHandler={setOilKind} carName={carName}/>}
+                        model={modelKind} kindHandler={setOilKind} carName={carName}
+                        carHandler={setModel}/>}
             {oilKind !== 0&&<SearchPList vehicle={vehicleKind} model={modelKind} kind={oilKind}/>}
         </>
     )

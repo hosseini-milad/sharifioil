@@ -1,4 +1,4 @@
-import {TOTAL_CART,USER_QUERY} from '../components/Query';
+import {addCartQuery} from '../components/Query';
 import FetchGraph from '../components/fetchGraph'
 import {
     useMutation,
@@ -29,39 +29,44 @@ function Payment(props){
         onCompleted: (data) => {
             setOrderId(data.createOrder.orderId)
             orderNo=data.createOrder.orderId;
-            addItemsNow(data.createOrder.orderId)
+            console.log("order No "+orderNo +" created")
+            //addItemsNow(data.createOrder.orderId)
         },
         onError: (({ graphQLErrors}) => {
             console.log("Error!",graphQLErrors[0].message)})
     }); 
-    if(cart&&created === 0){
+    //if(cart&&created === 0){
+    const handleCreate=()=>{
         created = 1
         AddOrder();
-        //AddOrder();
     }
-    const [addCart]=
-        useMutation(addCartQuery(orderNo,
-            productIdTemp,
-            productQTemp),{
-            onCompleted: (data) => {
-                console.log(data)
-                //setOrderId(data.createOrder.orderId)
-            }, 
-            onError: (({ graphQLErrors}) => {
-                console.log("Error!",graphQLErrors)})
-        }); 
-    async function addItemsNow(orderId){
+        //AddOrder();
+    //}
+    
+    async function handleItems(){
         //for(var index=0;index<cart.contents.nodes.length;index++){
            var index = 0;
             productIdTemp = cart.contents.nodes[index].product.node.databaseId;
             productQTemp = cart.contents.nodes[index].quantity;
-            console.log("before:",productIdTemp,productQTemp,orderNo)
+            
+            console.log("before:",productIdTemp,productQTemp,orderId)
             //if(orderNo)break;
-            productIdTemp.toString()!=="0"&&await addCart();
-            console.log("after:",productIdTemp,productQTemp)
+            const result = orderId&&await addCart();
+            console.log("after:",productIdTemp,productQTemp,result)
             ///index++;
-        //}
+        
     }
+    const [addCart]=
+    useMutation(addCartQuery(orderId,
+        productIdTemp,
+        productQTemp),{
+        onCompleted: (data) => {
+            console.log(data);
+            //setOrderId(data.createOrder.orderId)
+        }, 
+        onError: (({ graphQLErrors}) => {
+            console.log("Error!",graphQLErrors)})
+    }); 
     //const user = FetchGraph(USER_QUERY);
     
     return(
@@ -81,6 +86,8 @@ function Payment(props){
                   <div className="circleCheck"></div>
               </div>
           </div>
+          <input type="button" onClick={handleCreate} value="create"/>
+          <input type="button" onClick={handleItems} value="Add Items"/>
           </div>
           {cart&&orderId&&<Step2 cart={cart} orderId={orderId}/>}
         </>
@@ -107,17 +114,5 @@ mutation MyMutation {
 }`
 return addOrderQuery
 }
-function addCartQuery(orderId,pId,pQ){
-    console.log("orderId: ",orderNo)
-const updateOrderQuery = gql`mutation MyUpdateCart {
-    updateOrder(input: {orderId: ${orderNo}, 
-    lineItems:{ productId: ${pId}, quantity: ${pQ}}}) {
-      order {
-        databaseId
-      }
-    }
-  }
-`
-return updateOrderQuery
-}
+
 

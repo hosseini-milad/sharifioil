@@ -2,14 +2,14 @@ import FetchGraph from "../../../components/fetchGraph"
 import {BRAND_QUERY} from '../../../components/Query'
 
 function SearchPhase2(props){
-    const BRANDS = FetchGraph(BRAND_QUERY);
+    var BRANDS;
+    try{BRANDS = FetchGraph(BRAND_QUERY);}catch{}
     const handleBrand=(e,brands)=>{
         props.carHandler(brands.carnames.nodes);
-        props.modelHandler(e);
+        props.modelHandler(e)
+        props.setStep(3);
     }
     return(<div className="searchPhase1 searchPhase2">
-            <ul className="vehiclePart"><li dangerouslySetInnerHTML={{__html:props.vehicle.innerHTML}}></li>
-            </ul>
             <ul className="brandPart">
                 {BRANDS&&BRANDS.brands.nodes.map(((brands,i)=>(
                     <li onClick={(e)=>handleBrand(e.target.parentNode,brands)

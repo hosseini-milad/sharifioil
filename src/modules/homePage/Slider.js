@@ -17,8 +17,7 @@ function Slider(){
 	  ];
     return(<>
 	<div className="topBanner">
-		<span>گارانتی روانکاران، به هر دلیلی از کیفیت راضی نبودید
-			 روانکاران همراه شماست،
+		<span>سایت  درحال راه اندازی می باشد .منتظر ما باشید
 			 <a href="#"> بیشتر بدانید.</a></span>
 	</div>
         <section className="banner">

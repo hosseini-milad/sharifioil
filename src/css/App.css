@@ -275,12 +275,12 @@ border-top: 1px solid;
 	font-size: 1rem;
 	padding: 0.5rem;
 	position: absolute;
-	top: 0;
-	left: -6px;
 	border: none;
 	background-color: var(--border-color);
-	height: 42px;
-	width: 42px;
+	height: 40.5px;
+	left: -2px;
+	top: 1px;
+	width: 41px;
 }
 .circleIcon{
 	background-color: var(--main-color);
@@ -571,7 +571,7 @@ object-fit: contain !important;
 .topBanner span{
 	text-align: center;
 	display: block;
-	color: #212529;
+	color: var(--price);
 }
 .topBanner a{
 	text-decoration: underline;
@@ -786,8 +786,8 @@ max-width: 11rem;
 .blogimg-anim img{
 	border-radius: 5px;
 	width: 100%;
-	max-height: 350px;
-	object-fit: contain;
+	height: 350px;
+	object-fit: cover;
 }
 
 

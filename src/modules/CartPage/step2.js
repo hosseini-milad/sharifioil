@@ -2,7 +2,7 @@ import {useState} from 'react'
 import env,{normalPrice} from '../../env'
 function Step2(props){
     const cart = props.cart;
-    const price=cart.cart.total.replace( /^\D+/g, '');
+    const price=cart.total.replace( /^\D+/g, '');
     const userInfo = JSON.parse(localStorage.getItem('userInfo'))
     const sendToPay=()=>{
         const requestOptions = {
@@ -34,7 +34,7 @@ function Step2(props){
       </div>
       <div className="checkTab">
       <h3>خلاصه سفارش</h3><ul style={{justifyContent: "space-between"}}>
-          <li><span>مرسوله</span><small>{cart.cart.contents.nodes.length} کالا</small></li>
+          <li><span>مرسوله</span><small>{cart.contents.nodes.length} کالا</small></li>
     <li><span>زمان تقریبی دریافت</span><small>{userInfo.city==="تهران"?"تا 1 روز کاری":"تا 3 روز کاری"}</small></li>
           <li><span>مبلغ مرسوله</span><small>{normalPrice(price)} تومان</small></li>
       </ul>

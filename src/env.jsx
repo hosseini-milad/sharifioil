@@ -1,4 +1,6 @@
 const siteUrl='https://sharifoilco.com';
+//export const siteApi='http://sharif-api.deleves.com/api/v1/app';
+export const siteApi='http://yadak-test.deleves.com/api/v1';
 const env ={
     siteUrl:'https://sharifoilco.com',
     graphqlUrl:'https://sharifoilco.com/backend/api',

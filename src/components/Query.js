@@ -222,3 +222,18 @@ export const TOTAL_CART = gql`query MyQuery {
   }
 }
 `;
+
+export function addCartQuery(orderId,pId,pQ){
+  
+const updateOrderQuery = gql`mutation MyUpdateCart {
+  updateOrder(input: {orderId: ${orderId}, 
+  lineItems:{ productId: ${pId}, quantity: ${pQ}}}) {
+    order {
+      databaseId
+    }
+  }
+}
+`
+console.log(updateOrderQuery)
+return updateOrderQuery
+}

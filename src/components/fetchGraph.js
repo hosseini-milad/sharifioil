@@ -6,9 +6,9 @@ function FetchGraph(query){
     const {data} = useQuery(query, {
         notifyOnNetworkStatusChange: true,
         onCompleted: () => {
-            const updatedCart = data;
+            //const updatedCart = data;
             // Update  cart data in React Context.
-            setItem(updatedCart);
+            setItem(data);
         },
         onError:(e)=>{
             console.log('Error',e)

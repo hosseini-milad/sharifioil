@@ -31,8 +31,8 @@ function Checkout(){
           </div>
           
           </div>
-          {cart&&token&&<Step1 cart={cart} mobile={token.user.name}/>}
-        
+          {cart&&token&&<Step1 cart={cart} mobile={token.user.name}/> }
+        {cart&&localStorage.setItem('oil-cart', JSON.stringify(cart.cart))}
           </>
     )
 }

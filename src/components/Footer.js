@@ -23,9 +23,8 @@ function Footer(){
 						<i className="fab fa-whatsapp share"></i>
 					</div>
 					<div className="namadHolder">
-						<img src="https://yadaktimche.com/img/saman-min.png" />
-						<img src="https://yadaktimche.com/img/saman-min.png" />
-					</div>
+					<a referrerPolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=257247&Code=Ll8lsgN5sC5ASmkRNXpg"><img referrerPolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=257247&Code=Ll8lsgN5sC5ASmkRNXpg" alt="" style={{cursor:"pointer"}} id="Ll8lsgN5sC5ASmkRNXpg"/></a>
+						</div>
 				</div>
 			</div>
 			<div className="col25">

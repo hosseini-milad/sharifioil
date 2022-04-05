@@ -23,7 +23,6 @@ function Step1(props){
             .then(response => response.json())
             .then(data => (setUserInfo(data),localStorage.setItem("userInfo",JSON.stringify(data[0].billing))))
     }
-    console.log(userInfo)
     if(userInfo=== '')userList();
     return(
         <div className="checkMain">

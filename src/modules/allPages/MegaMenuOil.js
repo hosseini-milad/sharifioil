@@ -17,12 +17,12 @@ function MegaMenuOil(){
                 <div className="megaItem">
                     <div className="megaItemText"><strong>نوع روغن</strong>
                     <small>فیلتر بر اساس خودرو</small></div>
-                    <img src="http://oil.deleves.com/backend/wp-content/uploads/2022/01/روغن-موتور-پارس-پایا-20w50-چهار-لیتری.jpg" />
+                    <img src="https://sharifoilco.com/backend/wp-content/uploads/2022/02/110394746.jpg" />
                 </div>
                 <div className="megaItem">
                     <div className="megaItemText"><strong>دسته بندی برند</strong>
                     <small>فیلتر بر اساس برند</small></div>
-                    <img src="https://revitakhodro.com/wp-content/uploads/2021/02/%D8%B1%D9%88%D8%B4%D9%86-%D8%B4%D8%AF%D9%86-%DA%86%D8%B1%D8%A7%D8%BA-%D8%B1%D9%88%D8%BA%D9%86-6.jpg" />
+                    <img src="https://sharifoilco.com/backend/wp-content/uploads/2022/01/روغن-موتور-پارس-سوپر-پایا-10w40-چهار-ليتري.jpg" />
                 </div>
             </div>
             <div className="megaMainSub hideMenu">

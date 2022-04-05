@@ -1,4 +1,3 @@
-import env from "../env"
 import SearchArea from "../modules/allPages/SearchPart/SearchArea"
 import Categories from "../modules/homePage/Categories"
 import LastProducts from "../modules/homePage/LastProducts"
@@ -6,8 +5,12 @@ import Posts from "../modules/homePage/Posts"
 import Slider from "../modules/homePage/Slider"
 import WhyUs from "../modules/homePage/WhyUs"
 import MetaTags from 'react-meta-tags';
+import {siteApi} from '../env'
+import SimpleFetch from "../components/simpleFetch"
+import QuickSearch from "../modules/allPages/SearchPart/quickSearch"
 
 function Home(){
+    const homeInfo = SimpleFetch(siteApi+"/app/main-page")
     return (
         <>
         <MetaTags>
@@ -19,7 +22,7 @@ function Home(){
            <Slider/> 
            <div className="homeSideBar">
                 <h3>پیدا کردن محصولات برای:</h3>
-                <SearchArea />
+                <QuickSearch />
             </div>
            <Categories/>
            <div className="bannerRow">
@@ -35,7 +38,7 @@ function Home(){
 		   </div>
            {/*<Posts/>
            <WhyUs/>*/}
-           <LastProducts />
+           {homeInfo&&<LastProducts catList={homeInfo.data.categories}/>}
            <Posts/>
         </>
     )

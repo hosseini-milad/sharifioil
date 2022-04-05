@@ -19,7 +19,9 @@ function PostDetail(props){
         <p className="postContent" 
         dangerouslySetInnerHTML={{__html:catData.content.rendered.split('<h')[0]}}>
         </p>
-        <a href={catData.link} >مشاهده مطلب</a>
+        <a href={catData.link} className="catalogDl product3Dl">
+        <i className="icon-size fas fa-eye"></i> مشاهده مطلب</a>
+        
     </div>
     <div className="blogImg">
         <div className="blogimg-anim">
