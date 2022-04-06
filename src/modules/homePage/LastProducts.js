@@ -13,16 +13,16 @@ function LastProducts(props){
         <section className="offerPart">
 			<div className="offerTabs">
 				<ul>
-					{categoryList.map((cats,i)=>(
+					{categoryList.map((cats,i)=>(i<3&&
 						<li key={i} onClick={()=>setTabIndex(i)} className={tabIndex===i?"offerActive":""}>{cats.payload.title}</li>
 					))}
 				</ul>
 			</div>
-			{categoryList.map((cats,i)=>(
+			{categoryList.map((cats,i)=>(i<3&&
 				<div key={i} className="offerHolder" style={{display:tabIndex===i?"block":"none"}}>
 				<div className="offerList">
-					{cats.payload.products.map((product,i)=>(i<5&&
-					<ProductSingleApi product = {product.payload} key={i} cart={cart}/>
+					{cats.payload.products.map((product,j)=>(j<5&&
+					<ProductSingleApi product = {product.payload} key={j} cart={cart}/>
 				))}</div>
 				
 				</div>

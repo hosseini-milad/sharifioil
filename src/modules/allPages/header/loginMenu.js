@@ -1,80 +1,62 @@
 import { useState } from "react";
-import {ADD_USER_MUTATION, LOGIN_USER_MUTATION} from '../../../components/Query'
-import { useMutation} from "@apollo/client";
-import env from "../../../env";
-var create_user = 0;
+import env,{siteApi} from "../../../env";
 
 function LoginMenu(){
     const [mobile_phone, setMobile] = useState('');
     const [privateOtp, setPrivOTP] = useState('');
     const [otp, setOTP] = useState('');
-    const [mobileEnter , setMobileEnter] = useState('');
-    const [token,setToken] = useState(JSON.parse(localStorage.getItem('oil-login')));
-    const [sms,SetSms] = useState('');
-
-    const [addUser] = useMutation(ADD_USER_MUTATION(
-      mobile_phone, 
-      "Reyham@2372", 
-      mobile_phone+"@sharifioil.com"
-    ), {
-        onCompleted: () => {
-        },
-        onError: (error) => {
-            console.log("registerd!")
-            
-        }
-    });
+    //const [mobileEnter , setMobileEnter] = useState('');
+    const [token,setToken] = useState();
+    const [login,setLogin] = useState();
     
     const handleSendCode=()=>{
-
-      setMobileEnter(1);
-        var min = 1000;
-        var max = 9999;
-        var rand =  Math.floor(min + (Math.random() * (max-min)));
-        setPrivOTP(rand);
-
-        fetch(env.kaveNegarUrl+env.kaveNegarApi+"/sms/send.json?"+
-        `receptor=${mobile_phone}&sender=100026767&message=${rand}`)
+        const postOptions={
+          method:'post',
+          headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ phone_numbers: mobile_phone})
+        }
+        fetch(siteApi+"/authentication/login",postOptions)
       .then(res => res.json())
       .then(
         (result) => {
-            SetSms(result)
+          console.log(result)
+          setToken(result.data.token)
         },
         (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
+          console.log(error);
         }
-      )
-      console.log("sms Sent");
-      const resultRegister = addUser();
+      );
+    }
+    const handleLogin=()=>{
+      const postOptions={
+        method:'post',
+        headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ verification_code: otp,
+            token:token})
+      }
+      //console.log(postOptions)
+      fetch(siteApi+"/authentication/verify-user-by-sms",postOptions)
+    .then(res => res.json())
+    .then(
+      (result) => {
+        //console.log(result)
+        setLogin(1)
+        localStorage.setItem('token-oil',JSON.stringify(
+          {"token":result.data.access_token,
+          "mobile":mobile_phone}))
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    }
+    const logOut=()=>{
+      
     }
     
-    const [loginUser] = useMutation(LOGIN_USER_MUTATION(mobile_phone,
-    "Reyham@2372"),{
-      
-      onCompleted: (data) => {
-        setToken(JSON.stringify(data.login));
-        localStorage.setItem('oil-login', JSON.stringify(data.login));
-      },
-      onError: (error) => {
-          console.log("Error!",error)
-          
-      }
-    })
-    const handleLogin = (props) => {
-      if(create_user === 0){
-        const resultLogin = loginUser();
-      create_user= 1;}
-      }
-      
-      const logOut=()=>{
-        localStorage.removeItem('oil-login');
-      }
     return(<>
-    {!token&&<div className="notLogin">
-        {!mobileEnter&&
+    {!login&&<div className="notLogin">
+        {!token&&
         <div className="minicartData">
             <div className="item-cart-quantity" style={{display:"grid"}}>
                 <strong>ورود/ثبت نام</strong>
@@ -87,7 +69,7 @@ function LoginMenu(){
                 دریافت کد</a>
             </div>
         </div>}
-        {mobileEnter&&
+        {token&&
             <div className="minicartData">
             <div className="item-cart-quantity" style={{display:"grid"}}>
             <strong>ورود/ثبت نام</strong>
@@ -95,11 +77,17 @@ function LoginMenu(){
             <small>کد تایید برای شماره {mobile_phone} ارسال گردید</small>
             <input type="otp" placeholder="کد یکبار مصرف" 
             onChange={event=>setOTP(event.target.value)}></input>
+            <div className="cartpopup">
+                <a onClick={handleLogin} className="modal-sub-btn">
+                تایید</a>
+            </div>
             </div> 
-        </div>  }
-        {mobileEnter&&otp === privateOtp.toString()?handleLogin():''}
+        </div>  
+        
+    }
+        {otp === 1?handleLogin():''}
         </div>}
-        {token&&<div className="Loggedin">
+        {login&&<div className="Loggedin">
           کاربر {mobile_phone} 
           <a href="/profile" className="modal-sub-btn">
                 حساب کاربری</a>

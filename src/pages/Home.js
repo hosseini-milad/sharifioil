@@ -5,12 +5,13 @@ import Posts from "../modules/homePage/Posts"
 import Slider from "../modules/homePage/Slider"
 import WhyUs from "../modules/homePage/WhyUs"
 import MetaTags from 'react-meta-tags';
-import {siteApi} from '../env'
+import env,{siteApi} from '../env'
 import SimpleFetch from "../components/simpleFetch"
 import QuickSearch from "../modules/allPages/SearchPart/quickSearch"
 
 function Home(){
-    const homeInfo = SimpleFetch(siteApi+"/app/main-page")
+    const homeInfo = SimpleFetch(siteApi+env.mainPageApi)
+    console.log(homeInfo)
     return (
         <>
         <MetaTags>
@@ -37,9 +38,9 @@ function Home(){
                 
 		   </div>
            {/*<Posts/>
-           <WhyUs/>*/}
+           <WhyUs/>
            {homeInfo&&<LastProducts catList={homeInfo.data.categories}/>}
-           <Posts/>
+           */}<Posts/>
         </>
     )
 }

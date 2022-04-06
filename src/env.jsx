@@ -11,8 +11,13 @@ const env ={
     kaveNegarUrl:'https://api.kavenegar.com/v1/',
     loginUserUrl:siteUrl+'/backend/wp-json/jwt-auth/v1/token',
     addUserUrl:siteUrl+'/backend/wp-json/wp/v2/users',
-    payApi:'https://sharifoilco.com/backend/wp-json/wp/v1/pay/order/'
+    payApi:'https://sharifoilco.com/backend/wp-json/wp/v1/pay/order/',
 
+    mainPageApi:'/app/main-page',
+
+    cartDetailApi:'/order/cart-detail',
+    cartAddApi:'/order/add-to-cart',
+    cartRemoveApi:'/order/remove-from-cart'
 }
 export default env
 export function normalPrice(priceText){

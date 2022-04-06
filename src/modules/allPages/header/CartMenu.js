@@ -1,17 +1,18 @@
 import FetchGraph from "../../../components/fetchGraph"
-import { TOTAL_CART } from "../../../components/Query"
-import { normalPrice } from "../../../env";
+import simpleFetch from "../../../components/simpleFetch"
+import env, {siteApi, normalPrice } from "../../../env";
 
 function CartMenu(props){ 
-    const cart = props.cart;
+    const cart = simpleFetch(siteApi+env.cartDetailApi);
+    console.log(cart)
     return(
         <div className="minicartData">
             <div className="item-cart-quantity">
-            <strong> {cart&&cart.cart.contents.itemCount} محصول </strong>
+            <strong> {cart&&1} محصول </strong>
             در سبد خرید شماست</div>
 
 <div className="mini-cart-table">
-    {cart.cart.contents.nodes.map(cartItem=>(
+    {cart.cart&&cart.cart.contents.nodes.map(cartItem=>(
         <div className="productListHover" key={cartItem.key}>
         <div className="inner-wrap">
                 <img alt={cartItem.product.node.name} title={cartItem.product.node.name} 
@@ -33,7 +34,7 @@ function CartMenu(props){
     
 </div>
 <div className="cartpopup">
-        جمع سبد خرید:<b> {normalPrice(cart.cart.total)}
+        جمع سبد خرید:<b> {normalPrice(25000)}
                 <sub className="base-Toman">تومان</sub></b>
         <a href="/cart" className="modal-sub-btn">
             مشاهده سبد خرید</a>
