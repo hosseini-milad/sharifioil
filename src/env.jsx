@@ -1,6 +1,6 @@
 const siteUrl='https://sharifoilco.com';
 //export const siteApi='http://sharif-api.deleves.com/api/v1/app';
-export const siteApi='http://yadak-test.deleves.com/api/v1';
+export const siteApi='https://laravel.yadaktimche.com/api/v1';
 const env ={
     siteUrl:'https://sharifoilco.com',
     graphqlUrl:'https://sharifoilco.com/backend/api',
@@ -17,7 +17,13 @@ const env ={
 
     cartDetailApi:'/order/cart-detail',
     cartAddApi:'/order/add-to-cart',
-    cartRemoveApi:'/order/remove-from-cart'
+    cartRemoveApi:'/order/remove-from-cart',
+
+    userAddApi:'/user/address/list',
+    userAddInfoApi:'/user/addInfo',
+
+    productFilterListApi:'/category/getFilter/',
+    productFilterApi:'/product/getList'
 }
 export default env
 export function normalPrice(priceText){
